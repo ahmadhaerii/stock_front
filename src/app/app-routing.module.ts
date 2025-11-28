@@ -6,6 +6,7 @@ import { FareStructureComponent } from './components/fare-structure/fare-structu
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ReportComponent } from './components/report/report.component';
+import { StockPageComponent } from './components/stock-page/stock-page.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
     children: [
+      {
+        path: Links.stock.name,
+        component: StockPageComponent,
+      },
       {
         path: Links.fareStructure.name,
         component: FareStructureComponent,

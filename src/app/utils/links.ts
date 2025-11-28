@@ -3,10 +3,12 @@ enum routeNames {
   login = 'login',
   fareStructure = 'fare_structure',
   report = 'report',
+  stock = 'stock',
 }
 export enum routeLinks {
   dashboard = '/' + routeNames.dashboard,
   login = '/' + routeNames.login,
+  stock = '/' + routeNames.stock,
   fareStructure = '/' + routeNames.dashboard + '/' + routeNames.fareStructure,
   report = '/' + routeNames.dashboard + '/' + routeNames.report,
 }
@@ -24,5 +26,9 @@ export const Links = {
   report: {
     name: routeNames.report,
     route: routeLinks.report,
+  },
+  stock: {
+    name: routeNames.stock,
+    route: routeLinks.stock,
   },
 };

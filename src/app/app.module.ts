@@ -25,6 +25,7 @@ import { FalconLibModule } from 'nira-falcon';
 import { NiraDatePickerModule } from 'nira-date-picker';
 import { NgxIndexedDBModule } from 'ngx-indexed-db';
 import { DbConfig } from './store/dbConfig';
+import { StockPageComponent } from './components/stock-page/stock-page.component';
 export let AppInjector: Injector;
 
 @NgModule({
@@ -32,6 +33,12 @@ export let AppInjector: Injector;
     AppComponent,
 
     DashboardComponent,
+    StockPageComponent,
+
+
+
+
+
     DashboardContentComponent,
     DashboardHeaderComponent,
     FareStructureComponent,

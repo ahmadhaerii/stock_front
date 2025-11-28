@@ -1,13 +1,47 @@
 <div>
-    <div>
-         <core-btn
-      (btnClicked)="delete()"
-      class="col-span-1"
-      [colorState]="'danger'"
-      >{{ labels.delete }}</core-btn
+  <div class="w-36">
+    <core-btn (btnClicked)="('')" class="col-span-1 inline-block m-2" [colorState]="'success'"
+      >افزودن گزارش سالیانه</core-btn
     >
-    </div>
-    <div></div>
-    <div></div>
-    <div></div>
+
+    <core-btn (btnClicked)="('')" class="col-span-1 inline-block m-2" [colorState]="'success'"
+      >افزودن گزارش فصلی</core-btn
+    >
+
+    <core-btn (btnClicked)="('')" class="col-span-1 inline-block m-2" [colorState]="'success'"
+      >افزودن گزارش ماهیانه</core-btn
+    >
+
+    <core-btn (btnClicked)="('')" class="col-span-1 inline-block m-2" [colorState]="'success'"
+      > حاشیه سود سالیانه</core-btn
+    >
+    <core-btn (btnClicked)="('')" class="col-span-1 inline-block m-2" [colorState]="'success'"
+      > فصلی حاشیه سود</core-btn
+    >
+    <core-btn (btnClicked)="('')" class="col-span-1 inline-block m-2" [colorState]="'success'"
+      > فصلی فروش</core-btn
+    >
+    <core-btn (btnClicked)="('')" class="col-span-1 inline-block m-2" [colorState]="'success'"
+      >نمودار P/E</core-btn
+    >
+    <core-btn (btnClicked)="('')" class="col-span-1 inline-block m-2" [colorState]="'success'"
+      >کدال</core-btn
+    >
+    <core-btn (btnClicked)="('')" class="col-span-1 inline-block m-2" [colorState]="'success'"
+      >بورس</core-btn
+    >
+    <core-btn (btnClicked)="('')" class="col-span-1 inline-block m-2" [colorState]="'success'"
+      >رهاورد</core-btn
+    >
+  </div>
+   <div>
+        <core-table
+          [columnsSchema]="columnsSchema"
+          [tableData]="stockData"
+          [loading]="loading"
+          [canFilter]="true"
+        ></core-table>
+      </div>
+  <div></div>
+  <div></div>
 </div>

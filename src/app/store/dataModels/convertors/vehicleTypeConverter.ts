@@ -1,5 +1,4 @@
 import { JsonConverter, JsonCustomConvert } from 'json2typescript';
-import RouteDM from '../routeDM';
 import { AppInjector } from 'src/app/app.module';
 
 import VehicleTypeDM from '../vehicleTypeDM';
