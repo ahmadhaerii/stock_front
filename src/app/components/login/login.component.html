@@ -1,0 +1,34 @@
+<div class="login-page-blur-bg"></div>
+<div class="login-sec">
+  <form [formGroup]="loginForm" (submit)="login()">
+    <div class="login-sec_title mb-4">{{ labels.titleHeader }}</div>
+    <label> {{ labels.user }}</label>
+
+    <input
+      matInput
+      class="text-left"
+      type="text"
+      id="username"
+      autocomplete="off"
+      formControlName="username"
+      required
+    />
+    <!-- <span class="text-right m-0">* {{ labels.requiredError }}</span> -->
+
+    <label class="!mt-6"> {{ labels.pass }}</label>
+    <input
+      matInput
+      class="text-left"
+      type="password"
+      id="password"
+      autocomplete="off"
+      formControlName="password"
+      required
+    />
+    <!-- <span class="text-right m-0">* {{ labels.requiredError }}</span> -->
+    <core-spinner *ngIf="loading" type="line"></core-spinner>
+    <button mat-raised-button color="primary" type="submit" (click)="login()">
+      <span>{{ labels.submit }}</span>
+    </button>
+  </form>
+</div>

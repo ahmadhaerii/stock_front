@@ -1,0 +1,43 @@
+@import "assets/styles/colors.scss";
+@import "./assets/styles/colors.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+.headerLine {
+  border: 1px solid var(--line-color);
+  display: block;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 50%;
+  width: 100%;
+}
+* {
+  font-family: "Vazirmatn", sans-serif;
+
+  scrollbar-color: #888;
+  scrollbar-width: revert;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: whitesmoke;
+    border-radius: 15px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 15px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}

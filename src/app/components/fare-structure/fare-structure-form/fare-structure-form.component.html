@@ -1,0 +1,50 @@
+<core-card class="block min-w-64 max-h-[80vh] overflow-auto">
+  <div class="flex mb-6 justify-between bg-background-color">
+    <b class="m-3 self-center">{{ config.data ? labels.editService : labels.addService }}</b>
+    <close-icon
+      (click)="close()"
+      class="h-10 m-3 rounded-full cursor-pointer fill-secondary-text-color p-2 hover:fill-primary-text-color hover:shadow-md hover:bg-background-hover-color"
+    ></close-icon>
+  </div>
+  <core-select
+    class="block mx-4 w-80 h-20"
+    
+    [items]="fareStructureItemList"
+    [titleKey]="'Title'"
+    [valueKey]="'Id'"
+    [label]="labels.fareStructureItemName"
+
+    [inputFormControl]="myForm.get('formControlTitle')! | formControl"
+  ></core-select>
+  <core-input
+    class="block mx-4 w-80"
+    [placeholder]="labels.fareStructureItemPrice"
+    [inputFormControl]="myForm.get('formControlPrice')! | formControl"
+    [type]="'number'"
+  ></core-input>
+
+
+  <div class="grid grid-cols-3 gap-x-2 p-3" dir="ltr">
+    <core-btn class="col-span-1" (btnClicked)="close()">{{
+      labels.close
+    }}</core-btn>
+    <core-btn
+      [loading]="loading"
+      (btnClicked)="submitBtn()"
+      [isDisabled]="!myForm.valid"
+      class="col-span-1"
+      [colorState]="config.data ? 'warning' : 'success'"
+    >
+      {{ config.data ? labels.edit : labels.add }}
+    </core-btn>
+    <core-btn
+      *ngIf="config.data"
+      [loading]="loadingDelete"
+      (btnClicked)="delete()"
+      class="col-span-1"
+      [colorState]="'danger'"
+      [confirmDialog]="confirmDelete"
+      >{{ labels.delete }}</core-btn
+    >
+  </div>
+</core-card>

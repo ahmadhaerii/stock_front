@@ -1,0 +1,120 @@
+<div class="grid grid-cols-2 p-4">
+  <div class="col-span-2 flex">
+    <div class="flex-none w-8 h-8">
+      <span
+        class="relative z-10 inline-block bg-header-bg-icon p-[5px] rounded-full w-8"
+        ><select-all-icon class="fill-side-menu-active-color"></select-all-icon
+      ></span>
+    </div>
+    <div class="grow">
+      <div class="px-4">
+        <div class="relative">
+          <span class="headerLine"></span>
+          <span
+            class="relative pl-4 bg-background-color z-20 text-2xl font-bold text-side-menu-active-color"
+            >{{ labels.titleHeader }}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="flex w-auto">
+      <core-btn
+        (btnClicked)="openFareStructureItemsModal()"
+        class="col-span-1 me-3 bg-white"
+        [colorState]="'primary'"
+      >
+        <div class="flex">
+          <dataset-icon class="h-5 w-5 fill-primary-button-color me-1">
+          </dataset-icon>
+          {{ labels.fareStructureItems }}
+        </div>
+      </core-btn>
+      <core-btn class="col-span-1 bg-white" [colorState]="'success'">
+        <div class="flex">
+          <add-icon class="h-5 w-5 fill-success-button-color me-1"> </add-icon>
+          {{ labels.newStructure }}
+        </div>
+      </core-btn>
+    </div>
+  </div>
+  <div class="col-span-1 grid grid-cols-1 gap-y-3 pt-12">
+    <div class="col-span-1" *ngFor="let fareStructure of fareStructures">
+      <core-card class="font-semibold">
+        <div
+          class="grid grid-cols-12"
+          [ngClass]="{
+            selected:
+              selectedFareStructure?.fareStructureId ==
+              fareStructure.fareStructureId
+          }"
+        >
+          <div class="col-span-11">
+            <div class="flex ps-4 pt-3">
+              <span class="text-secondary-text-color">
+                {{ labels.fareStructureType }}:
+              </span>
+              <span class="text-primary-text-color ps-2">
+                {{ fareStructure.title }}</span
+              >
+            </div>
+            <div class="flex ps-4 pt-3">
+              <span class="text-secondary-text-color">
+                {{ labels.numberOfItems }}:
+              </span>
+              <span class="text-primary-text-color ps-2">
+                {{ fareStructure.fareStructureDetails.length }}</span
+              >
+            </div>
+            <div class="flex ps-4 pt-3">
+              <span class="text-secondary-text-color">
+                {{ labels.totalPrice }}:
+              </span>
+              <span class="text-primary-text-color ps-2">
+                {{ calculateTotalPrice(fareStructure) }}</span
+              >
+
+              <span class="text-primary-text-color ps-">
+                {{ labels.currency }}</span
+              >
+            </div>
+          </div>
+          <div class="col-span-1 flex pt-16">
+            <span
+              (click)="selectedFareStructure = fareStructure"
+              class="rounded-full h-8 w-8 p-0 m-0 cursor-pointer hover:bg-background-hover-color"
+            >
+              <span class="inline-block mt-[6px] mr-[3px] w-[20px] h-[20px]">
+                <arrow-back-i-os class="fill-icon-color"></arrow-back-i-os>
+              </span>
+            </span>
+          </div>
+          <div class="col-span-12 flex justify-end p-4">
+            <span class="pe-2"
+              ><core-btn [colorState]="'primary'">{{
+                labels.edit
+              }}</core-btn></span
+            >
+
+            <span
+              ><core-btn [colorState]="'danger'">{{
+                labels.delete
+              }}</core-btn></span
+            >
+          </div>
+        </div>
+      </core-card>
+    </div>
+  </div>
+
+  <div class="col-span-1 ps-4 pt-12 ps-5">
+    <app-fare-structure-details
+      *ngIf="selectedFareStructure"
+      [selectedFareStructure]="selectedFareStructure"
+    ></app-fare-structure-details>
+    <!-- <ng-template #noContent>
+      <core-no-content
+        [description]="labels.noContentDescription"
+      ></core-no-content>
+    </ng-template> -->
+  </div>
+</div>

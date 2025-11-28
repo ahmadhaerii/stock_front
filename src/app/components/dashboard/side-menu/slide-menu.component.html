@@ -1,0 +1,45 @@
+<div class="container-menu shadow-lg bg-background-color">
+  <div
+    class="navigation "
+    [ngClass]="{ 'navigation-close': isMenuSelect }"
+  >
+    <ul>
+      <li class="list" *ngFor="let menuItem of menuList">
+        <a
+          class="menu text-icon-color"
+          *ngIf="menuItem.type == 'menu'"
+          [routerLink]="menuItem.link"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="onMenuItemClick(menuItem)"
+        >
+          <div class="icon fill-icon-color h-7 w-7">
+            <ng-container *ngComponentOutlet="menuItem.icon" />
+          </div>
+
+          <span class="title ">{{ menuItem.title }}</span>
+          <div
+            class="icon-arrow fill-icon-color h-[3rem] w-[3rem]"
+            [ngClass]="{ 'icon-arrow-active': menuItem == menuItemClicked }"
+            
+            *ngIf="menuItem.child.length > 0"
+          >
+            <arrow-down-icon></arrow-down-icon>
+          </div>
+        </a>
+        <div *ngIf="menuItem.child.length > 0 && menuItem == menuItemClicked">
+          <div
+            class="child-list"
+            *ngFor="let child of menuItem.child"
+            (click)="onItemChildClick(child)"
+            [routerLink]="child.link"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <span class="title">{{ child.title }}</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<core-card *ngIf="fareStructure">
+  <div class="flex justify-between">
+    <div class="text-secondary-text-color font-bold p-4">
+      {{ labels.structure }} {{ fareStructure.title }}
+    </div>
+    <div
+      (click)="openAddFareStructureItemModal()"
+      class="h-8 w-8 rounded-full hover:bg-background-hover-color p-1 cursor-pointer mt-[10px] me-[10px]"
+    >
+      <add-icon class="fill-success-button-color"></add-icon>
+    </div>
+  </div>
+
+  <core-table
+    [columnsSchema]="columnsSchema"
+    [tableData]="fareStructureDetails"
+    [loading]="false"
+  ></core-table>
+</core-card>

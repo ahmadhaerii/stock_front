@@ -1,0 +1,18 @@
+<core-card class="block min-w-96 max-h-[80vh] overflow-auto">
+  <div class="flex justify-between p-4">
+    <div class="text-primary-text-color font-bold">
+      {{ labels.fareStructureItems }}
+    </div>
+    <div>
+      <core-btn [colorState]="'success'" class=""> جدید </core-btn>
+    </div>
+  </div>
+<div class="px-2 pb-2">
+  <hr class="border-line-color" />
+</div>
+
+  <div *ngFor="let item of fareStructureItemList">
+  
+    <app-fare-structure-item [fareStructureItems]="item"></app-fare-structure-item>
+  </div>
+</core-card>

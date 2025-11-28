@@ -1,0 +1,86 @@
+<div class="p-4 h-screen/90 overflow-y-auto">
+  <div class="col-span-2 flex">
+    <div class="flex-none w-8 h-8">
+      <span
+        class="relative z-10 inline-block bg-header-bg-icon rounded-full w-8"
+        ><report-icon class="fill-side-menu-active-color"></report-icon
+      ></span>
+    </div>
+    <div class="grow">
+      <div class="px-4">
+        <div class="relative text-justify">
+          <span class="headerLine"></span>
+          <span
+            class="relative pl-4 bg-background-color z-20 text-2xl font-bold text-side-menu-active-color"
+            >{{ labels.titleHeader }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <core-card class="block col-span-1 justify-between mt-10">
+    <div class="text-center" *ngIf="loadingReportParameters">
+      <core-spinner class="inline-block" [size]="80"></core-spinner>
+    </div>
+    <div class="col-span-1 py-9" *ngIf="!loadingReportParameters">
+      <div class="flex gap-4 m-4">
+        <ng-container *ngFor="let parameter of parameters">
+          <core-input
+            *ngIf="parameter.parameterType === 'String'"
+            class="block w-60"
+            [type]="'text'"
+            [disable]="disabledParameters.includes(parameter.parameterName)"
+            [inputFormControl]="
+              myForm.get(parameter.parameterName)! | formControl
+            "
+            [placeholder]="parameter.parameterTitleFa"
+            (onChange)="parameter.defaultValue = $event"
+          ></core-input
+          ><core-date-picker
+            *ngIf="parameter.parameterType === 'Date'"
+            [canSelectToday]="true"
+            [label]="parameter.parameterTitleFa"
+            class="block mx-4 w-80"
+            [inputFormControl]="
+              myForm.get(parameter.parameterName)! | formControl
+            "
+          ></core-date-picker>
+          <div class="flex mt-3" *ngIf="parameter.parameterType === 'Boolean'">
+            <div class="text-secondary-text-color text-sm font-semibold w-24">
+              {{ parameter.parameterTitleFa }} :
+            </div>
+            <core-radio-buttons
+              class="ps-2 w-48"
+              [defaultValue]="parameter.defaultValue === 'true'"
+              [titleKey]="'text'"
+              [valueKey]="'value'"
+              [layout]="'row'"
+              [name]="'transiting' + parameter.parameterIndex"
+              [items]="statusItems"
+              (onChange)="parameter.defaultValue = $event"
+            ></core-radio-buttons>
+          </div>
+        </ng-container>
+
+        <core-btn
+          (btnClicked)="submit()"
+          [loading]="loading"
+          [isDisabled]="!myForm.valid"
+          class="!w-36 block mr-auto"
+          [size]="'medium'"
+          [colorState]="'success'"
+        >
+          {{ labels.btnConfirmation }}
+        </core-btn>
+      </div>
+      <div>
+        <core-table
+          [columnsSchema]="columnsSchema"
+          [tableData]="data"
+          [loading]="loading"
+          [canFilter]="true"
+        ></core-table>
+      </div>
+    </div>
+  </core-card>
+</div>

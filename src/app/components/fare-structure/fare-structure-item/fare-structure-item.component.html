@@ -1,0 +1,23 @@
+<div *ngIf="fareStructureItems" class="flex justify-between p-4">
+  <div
+    class="bg-background-hover-color rounded min-w-56 text-primary-text-color ps-2 pt-1"
+  >
+    {{ fareStructureItems.Title }}
+  </div>
+  <div class="flex">
+    <div
+      class="h-8 w-8  rounded-full hover:bg-background-hover-color p-1 cursor-pointer me-1"
+    >
+      <edit-square-icon
+        class="cursor-pointer fill-primary-button-color"
+      ></edit-square-icon>
+    </div>
+    <div
+      class="h-8 w-8 rounded-full hover:bg-background-hover-color p-1 cursor-pointer"
+    >
+      <delete-forever-icon
+        class="fill-danger-button-color"
+      ></delete-forever-icon>
+    </div>
+  </div>
+</div>

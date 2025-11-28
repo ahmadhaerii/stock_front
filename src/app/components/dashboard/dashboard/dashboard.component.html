@@ -1,0 +1,19 @@
+<div class="d-flex bg-background-color w-full h-full">
+  <app-dashboard-header
+    (menuSelectEmit)="onMenuSelect()"
+  ></app-dashboard-header>
+
+  <div class="mContainer bg-background-color">
+    <app-slide-menu
+      class="containerRight"
+      id="rightSide"
+      [isMenuSelect]="isMenuSelect"
+    ></app-slide-menu>
+    <div class="resizer" id="dragMe">
+      <span class="dragIcon material-symbols-outlined"></span>
+    </div>
+    <div id="leftSide" class="containerLeft boxShadow flex flex-col ">
+      <app-dashboard-content class="flex-1 bg-background-color "></app-dashboard-content>
+    </div>
+  </div>
+</div>
