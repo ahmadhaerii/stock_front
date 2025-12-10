@@ -26,6 +26,7 @@ import { NiraDatePickerModule } from 'nira-date-picker';
 import { NgxIndexedDBModule } from 'ngx-indexed-db';
 import { DbConfig } from './store/dbConfig';
 import { StockPageComponent } from './components/stock-page/stock-page.component';
+import { TooltipDirective } from './directive/tooltip.directive';
 export let AppInjector: Injector;
 
 @NgModule({
@@ -50,6 +51,7 @@ export let AppInjector: Injector;
     LoginComponent,
     SlideMenuComponent,
     FormControlPipe,
+    TooltipDirective,
     declarationIcons,
     declarationCores,
   ],

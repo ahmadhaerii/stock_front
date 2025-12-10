@@ -26,8 +26,8 @@ export class StockCS {
     });
   }
 
-  async getStock(id: number) {
-    return await this.stockDS.getStock(id);
+  async getStockData(id: number) {
+    return await this.stockDS.getStockData(id);
   }
 
   // async edit(office: OfficeDM) {

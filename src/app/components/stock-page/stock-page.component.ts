@@ -12,36 +12,7 @@ import StockDM from 'src/app/store/dataModels/stockDM';
 })
 export class StockPageComponent {
   loading = false ;
-  
-    stockData = new BehaviorSubject<StockDM[]>([]);
-  columnsSchema: ColumnsSchema[] = [
-    // {
-    //   key: 'fareStructureItem',
-    //   type: COLUMNS_TYPES.SELECTOR,
-    //   label: this.labels.fareStructureItemName,
-    //   data: {
-    //     key: 'title',
-    //   },
-    // },
-    // {
-    //   key: 'price',
-    //   type: COLUMNS_TYPES.TEXT,
-    //   label: this.labels.fareStructureItemPrice,
-    // },
-    // {
-    //   key: 'action',
-    //   type: COLUMNS_TYPES.ACTION_BUTTONS,
-    //   label: this.labels.edit,
-
-    //   data: [
-    //     {
-    //       key: 'fareStructureItemId',
-    //       component: FareStructureFormComponent,
-    //       title: '',
-    //     },
-    //   ],
-    // },
-  ];
+  stockData : StockDM = new StockDM();
 
   constructor(
     private stockCS: StockCS
@@ -49,9 +20,9 @@ export class StockPageComponent {
 
     async ngOnInit() {
       this.loading = true
-      const data = await this.stockCS.getStock(1);
+      const data = await this.stockCS.getStockData(1);
       console.log(data);
-        // this.stockData.next(data);
+       this.stockData = data ;
       this.loading = false
   }
 }

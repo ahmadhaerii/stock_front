@@ -18,7 +18,7 @@ export default class StockDM extends Datamodel {
   @JsonProperty('tsetmc-id', String, true) tsetmcId = '';
   @JsonProperty('last-dp', Number, true) lastDp = 0;
   @JsonProperty('category', CategoryDM, true) category = false;
-    @JsonProperty('monthly_stock_data', [MonthlyStockDataDM], true) monthlyStockData = [];
-    @JsonProperty('yearly_stock_data', [YearlyStockDataDM], true) yearlyStockData = [];
+    @JsonProperty('monthly_stock_data', [MonthlyStockDataDM], true) monthlyStockData : MonthlyStockDataDM[] | undefined = undefined;
+    @JsonProperty('yearly_stock_data', [YearlyStockDataDM], true) yearlyStockData:YearlyStockDataDM[] | undefined = undefined;
 }
  

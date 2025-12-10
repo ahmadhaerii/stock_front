@@ -21,6 +21,15 @@ export class StockApiService {
   }
 
 
+  public async getStockData(id: number) {
+   const data: any = await this.httpRequest.GET(
+        'get_stock_data/'+id 
+      );
+      return JsonParser.deserializeObject(data, StockDM);
+
+  }
+
+
   
 
 
