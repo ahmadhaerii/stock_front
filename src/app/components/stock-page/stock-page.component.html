@@ -34,14 +34,85 @@
       >رهاورد</core-btn
     >
   </div>
+  
+
    <div>
-        <core-table
-          [columnsSchema]="columnsSchema"
-          [tableData]="stockData"
-          [loading]="loading"
-          [canFilter]="true"
-        ></core-table>
+      <div class="tableYearHeader">
+        <span [appTooltip]="'سال مالی'" appTooltipHelperPosition="bottom">س م</span>
+        <span [appTooltip]="'فروش'" appTooltipHelperPosition="bottom">ف</span>
+        <span [appTooltip]="'هزینه تولید'" appTooltipHelperPosition="bottom">ه.ت</span>
+        <span [appTooltip]="'سود و زیان خالص'" appTooltipHelperPosition="bottom">س(ز)خ</span>
+        <span [appTooltip]="'قیمت دلار'" appTooltipHelperPosition="bottom">$</span>
+        <span [appTooltip]="'فروش به دلار'" appTooltipHelperPosition="bottom">ف $</span>
+        <span [appTooltip]="'هزینه تولید به دلار'" appTooltipHelperPosition="bottom">ه ت $</span>
+        <span [appTooltip]="'سود و زیان خالص به دلار'" appTooltipHelperPosition="bottom">س(ز)خ $</span>
+        <span [appTooltip]="'هزینه تولید به فروش'" appTooltipHelperPosition="bottom">ه ت به ف</span>
+        <span [appTooltip]="'حاشیه سود خالص'" appTooltipHelperPosition="bottom">ح س خ</span>
+        <span [appTooltip]="'تغییرات   دلار'" appTooltipHelperPosition="bottom">ت $</span>
+        <span [appTooltip]="'تغییرات فروش به دلار'" appTooltipHelperPosition="bottom">ت ف $</span>
+        <span [appTooltip]="'تغییرات هزینه تولید به دلار'" appTooltipHelperPosition="bottom">ت ه ت $</span>
+        <span [appTooltip]="'تغییرات سود و زیان خالص به دلار'" appTooltipHelperPosition="bottom">ت س(ز)خ $</span>
+        <span [appTooltip]="'اهرم ... '">اهرم</span> 
+      </div> 
+      <div class="tableYearBody" *ngFor="let yearlyStockData of stockData.yearlyStockData">
+         <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{yearlyStockData.year}}</span>
+        <span class="blue"   [appTooltip]="''" appTooltipHelperPosition="bottom">{{yearlyStockData.operatingIncome}}</span>
+        <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{yearlyStockData.costOfProductionToSales}}</span>
+        <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{yearlyStockData.costOfProductionToSales}}</span>
+        <span class="gray" [appTooltip]="''" appTooltipHelperPosition="bottom">{{yearlyStockData.dollarPrice?.price}}</span>
+        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">ف $</span>
+        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">ه ت $</span>
+        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">س(ز)خ $</span>
+        <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">ه ت به ف</span>
+        <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">ح س خ</span>
+        <span class="gray" [appTooltip]="''" appTooltipHelperPosition="bottom">ت $</span>
+        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">ت ف $</span>
+        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">ت ه ت $</span>
+        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">ت س(ز)خ $</span>
+        <span class="gray" [appTooltip]="''">اهرم</span> 
       </div>
+    </div>
+
+
+    
+   <div>
+      <div class="tableYearHeader">
+        <span [appTooltip]="'سال مالی'" appTooltipHelperPosition="bottom">س م</span>
+        <span [appTooltip]="'فروش'" appTooltipHelperPosition="bottom">ف</span>
+        <span [appTooltip]="'هزینه تولید'" appTooltipHelperPosition="bottom">ه.ت</span>
+        <span [appTooltip]="'سود و زیان خالص'" appTooltipHelperPosition="bottom">س(ز)خ</span>
+        <span [appTooltip]="'قیمت دلار'" appTooltipHelperPosition="bottom">$</span>
+        <span [appTooltip]="'فروش به دلار'" appTooltipHelperPosition="bottom">ف $</span>
+        <span [appTooltip]="'هزینه تولید به دلار'" appTooltipHelperPosition="bottom">ه ت $</span>
+        <span [appTooltip]="'سود و زیان خالص به دلار'" appTooltipHelperPosition="bottom">س(ز)خ $</span>
+        <span [appTooltip]="'هزینه تولید به فروش'" appTooltipHelperPosition="bottom">ه ت به ف</span>
+        <span [appTooltip]="'حاشیه سود خالص'" appTooltipHelperPosition="bottom">ح س خ</span>
+        <span [appTooltip]="'تغییرات   دلار'" appTooltipHelperPosition="bottom">ت $</span>
+        <span [appTooltip]="'تغییرات فروش به دلار'" appTooltipHelperPosition="bottom">ت ف $</span>
+        <span [appTooltip]="'تغییرات هزینه تولید به دلار'" appTooltipHelperPosition="bottom">ت ه ت $</span>
+        <span [appTooltip]="'تغییرات سود و زیان خالص به دلار'" appTooltipHelperPosition="bottom">ت س(ز)خ $</span>
+        <span [appTooltip]="'اهرم ... '">اهرم</span> 
+      </div> 
+      <div class="tableYearBody" *ngFor="let yearlyStockData of stockData.yearlyStockData">
+         <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{yearlyStockData.year}}</span>
+        <span class="blue"   [appTooltip]="''" appTooltipHelperPosition="bottom">{{yearlyStockData.operatingIncome}}</span>
+        <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{yearlyStockData.costOfProductionToSales}}</span>
+        <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{yearlyStockData.costOfProductionToSales}}</span>
+        <span class="gray" [appTooltip]="''" appTooltipHelperPosition="bottom">{{yearlyStockData.dollarPrice?.price}}</span>
+        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">ف $</span>
+        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">ه ت $</span>
+        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">س(ز)خ $</span>
+        <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">ه ت به ف</span>
+        <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">ح س خ</span>
+        <span class="gray" [appTooltip]="''" appTooltipHelperPosition="bottom">ت $</span>
+        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">ت ف $</span>
+        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">ت ه ت $</span>
+        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">ت س(ز)خ $</span>
+        <span class="gray" [appTooltip]="''">اهرم</span> 
+      </div>
+    </div>
+
+
   <div></div>
   <div></div>
 </div>

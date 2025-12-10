@@ -37,8 +37,8 @@ export class StockDS extends BaseItemDS<StockDM> {
   // }
   
 
-  async getStock(id: number) {
-    return await this.stockApiService.getStock(id);
+  async getStockData(id: number) {
+    return await this.stockApiService.getStockData(id);
   }
 
   async doLoad(force: boolean) {
