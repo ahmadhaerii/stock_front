@@ -39,3 +39,154 @@
     color: black;
   }
 }
+
+.tableMonthHeader {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  background: lightslategray;
+  width: fit-content;
+  color: white;
+  .year {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    width: 84px;
+    display: inline-block;
+    border-right: 1px solid darkgray;
+    height: -webkit-fill-available;
+    border-bottom: 1px solid darkgray;
+  }
+  .season {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    width: 100px;
+    display: inline-block;
+    height: -webkit-fill-available;
+    border-right: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+  }
+  .month {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    height: -webkit-fill-available;
+    text-align: center;
+    width: 100px;
+    display: inline-block;
+    border-right: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+  }
+  .afterMonth {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    height: -webkit-fill-available;
+    min-width: 200px;
+    border-right: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+    .month{
+      height: -webkit-fill-available;
+    align-items: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    }
+    span {
+      border-bottom: 1px solid darkgray;
+      width: -webkit-fill-available;
+    }
+    .headerItem {
+      border-right: 1px solid darkgray;
+      border-bottom: 1px solid darkgray;
+      min-width: 100px;
+    }
+  }
+
+  .hearBigItem {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    min-width: 1000px;
+    flex-direction: column;
+  }
+  .headerItem {
+    background: lightslategray;
+    color: white;
+    padding: 4px 0px;
+    border-right: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+    width: 100px;
+    height: 32px;
+    display: inline-block;
+    text-align: center;
+  }
+  .last{
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    height: -webkit-fill-available;
+    min-width: 100px;
+    border-right: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+  }
+}
+
+
+.tableMonthBody {
+  display: flex;
+  span {
+    background: #69b4ff;
+    color: white;
+    border-right: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+    width: 100px;
+    height: 32px;
+    display: inline-block;
+    text-align: center;
+  }
+  .blue {
+    background: #69b4ff;
+    color: black;
+  }
+
+  .green {
+    background: green;
+    color: black;
+  }
+
+  .gray {
+   background: lightslategray;
+    color: white;
+  }
+
+  .lightslategrey {
+   background: lightslategrey;
+    color: black;
+  }
+
+  .greenyellow {
+    background: greenyellow;
+    color: black;
+  }
+
+  .yellow {
+    background: yellow;
+    color: black;
+  }
+  .orange {
+    background: orange;
+    color: black;
+  }
+}
+
+.sectionTwo{
+      width: 1586px;
+    overflow: auto;
+    zoom: 0.8;
+}

@@ -1,117 +1,809 @@
-<div>
+<div class="block">
   <div class="w-36">
-    <core-btn (btnClicked)="('')" class="col-span-1 inline-block m-2" [colorState]="'success'"
+    <core-btn
+      (btnClicked)="('')"
+      class="col-span-1 inline-block m-2"
+      [colorState]="'success'"
       >افزودن گزارش سالیانه</core-btn
     >
 
-    <core-btn (btnClicked)="('')" class="col-span-1 inline-block m-2" [colorState]="'success'"
+    <core-btn
+      (btnClicked)="('')"
+      class="col-span-1 inline-block m-2"
+      [colorState]="'success'"
       >افزودن گزارش فصلی</core-btn
     >
 
-    <core-btn (btnClicked)="('')" class="col-span-1 inline-block m-2" [colorState]="'success'"
+    <core-btn
+      (btnClicked)="('')"
+      class="col-span-1 inline-block m-2"
+      [colorState]="'success'"
       >افزودن گزارش ماهیانه</core-btn
     >
 
-    <core-btn (btnClicked)="('')" class="col-span-1 inline-block m-2" [colorState]="'success'"
-      > حاشیه سود سالیانه</core-btn
+    <core-btn
+      (btnClicked)="('')"
+      class="col-span-1 inline-block m-2"
+      [colorState]="'success'"
     >
-    <core-btn (btnClicked)="('')" class="col-span-1 inline-block m-2" [colorState]="'success'"
-      > فصلی حاشیه سود</core-btn
+      حاشیه سود سالیانه</core-btn
     >
-    <core-btn (btnClicked)="('')" class="col-span-1 inline-block m-2" [colorState]="'success'"
-      > فصلی فروش</core-btn
+    <core-btn
+      (btnClicked)="('')"
+      class="col-span-1 inline-block m-2"
+      [colorState]="'success'"
     >
-    <core-btn (btnClicked)="('')" class="col-span-1 inline-block m-2" [colorState]="'success'"
+      فصلی حاشیه سود</core-btn
+    >
+    <core-btn
+      (btnClicked)="('')"
+      class="col-span-1 inline-block m-2"
+      [colorState]="'success'"
+    >
+      فصلی فروش</core-btn
+    >
+    <core-btn
+      (btnClicked)="('')"
+      class="col-span-1 inline-block m-2"
+      [colorState]="'success'"
       >نمودار P/E</core-btn
     >
-    <core-btn (btnClicked)="('')" class="col-span-1 inline-block m-2" [colorState]="'success'"
+    <core-btn
+      (btnClicked)="('')"
+      class="col-span-1 inline-block m-2"
+      [colorState]="'success'"
       >کدال</core-btn
     >
-    <core-btn (btnClicked)="('')" class="col-span-1 inline-block m-2" [colorState]="'success'"
+    <core-btn
+      (btnClicked)="('')"
+      class="col-span-1 inline-block m-2"
+      [colorState]="'success'"
       >بورس</core-btn
     >
-    <core-btn (btnClicked)="('')" class="col-span-1 inline-block m-2" [colorState]="'success'"
+    <core-btn
+      (btnClicked)="('')"
+      class="col-span-1 inline-block m-2"
+      [colorState]="'success'"
       >رهاورد</core-btn
     >
   </div>
-  
 
-   <div>
-      <div class="tableYearHeader">
-        <span [appTooltip]="'سال مالی'" appTooltipHelperPosition="bottom">س م</span>
-        <span [appTooltip]="'فروش'" appTooltipHelperPosition="bottom">ف</span>
-        <span [appTooltip]="'هزینه تولید'" appTooltipHelperPosition="bottom">ه.ت</span>
-        <span [appTooltip]="'سود و زیان خالص'" appTooltipHelperPosition="bottom">س(ز)خ</span>
-        <span [appTooltip]="'قیمت دلار'" appTooltipHelperPosition="bottom">$</span>
-        <span [appTooltip]="'فروش به دلار'" appTooltipHelperPosition="bottom">ف $</span>
-        <span [appTooltip]="'هزینه تولید به دلار'" appTooltipHelperPosition="bottom">ه ت $</span>
-        <span [appTooltip]="'سود و زیان خالص به دلار'" appTooltipHelperPosition="bottom">س(ز)خ $</span>
-        <span [appTooltip]="'هزینه تولید به فروش'" appTooltipHelperPosition="bottom">ه ت به ف</span>
-        <span [appTooltip]="'حاشیه سود خالص'" appTooltipHelperPosition="bottom">ح س خ</span>
-        <span [appTooltip]="'تغییرات   دلار'" appTooltipHelperPosition="bottom">ت $</span>
-        <span [appTooltip]="'تغییرات فروش به دلار'" appTooltipHelperPosition="bottom">ت ف $</span>
-        <span [appTooltip]="'تغییرات هزینه تولید به دلار'" appTooltipHelperPosition="bottom">ت ه ت $</span>
-        <span [appTooltip]="'تغییرات سود و زیان خالص به دلار'" appTooltipHelperPosition="bottom">ت س(ز)خ $</span>
-        <span [appTooltip]="'اهرم ... '">اهرم</span> 
-      </div> 
-      <div class="tableYearBody" *ngFor="let yearlyStockData of stockData.yearlyStockData">
-         <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{yearlyStockData.year}}</span>
-        <span class="blue"   [appTooltip]="''" appTooltipHelperPosition="bottom">{{yearlyStockData.operatingIncome}}</span>
-        <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{yearlyStockData.costOfProductionToSales}}</span>
-        <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{yearlyStockData.costOfProductionToSales}}</span>
-        <span class="gray" [appTooltip]="''" appTooltipHelperPosition="bottom">{{yearlyStockData.dollarPrice?.price}}</span>
-        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">ف $</span>
-        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">ه ت $</span>
-        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">س(ز)خ $</span>
-        <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">ه ت به ف</span>
-        <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">ح س خ</span>
-        <span class="gray" [appTooltip]="''" appTooltipHelperPosition="bottom">ت $</span>
-        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">ت ف $</span>
-        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">ت ه ت $</span>
-        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">ت س(ز)خ $</span>
-        <span class="gray" [appTooltip]="''">اهرم</span> 
-      </div>
+  <div>
+    <div class="tableYearHeader">
+      <span [appTooltip]="'سال مالی'" appTooltipHelperPosition="bottom"
+        >س م</span
+      >
+      <span [appTooltip]="'فروش'" appTooltipHelperPosition="bottom">ف</span>
+      <span [appTooltip]="'هزینه تولید'" appTooltipHelperPosition="bottom"
+        >ه.ت</span
+      >
+      <span [appTooltip]="'سود و زیان خالص'" appTooltipHelperPosition="bottom"
+        >س(ز)خ</span
+      >
+      <span [appTooltip]="'قیمت دلار'" appTooltipHelperPosition="bottom"
+        >$</span
+      >
+      <span [appTooltip]="'فروش به دلار'" appTooltipHelperPosition="bottom"
+        >ف $</span
+      >
+      <span
+        [appTooltip]="'هزینه تولید به دلار'"
+        appTooltipHelperPosition="bottom"
+        >ه ت $</span
+      >
+      <span
+        [appTooltip]="'سود و زیان خالص به دلار'"
+        appTooltipHelperPosition="bottom"
+        >س(ز)خ $</span
+      >
+      <span
+        [appTooltip]="'هزینه تولید به فروش'"
+        appTooltipHelperPosition="bottom"
+        >ه ت به ف</span
+      >
+      <span [appTooltip]="'حاشیه سود خالص'" appTooltipHelperPosition="bottom"
+        >ح س خ</span
+      >
+      <span [appTooltip]="'تغییرات   دلار'" appTooltipHelperPosition="bottom"
+        >ت $</span
+      >
+      <span
+        [appTooltip]="'تغییرات فروش به دلار'"
+        appTooltipHelperPosition="bottom"
+        >ت ف $</span
+      >
+      <span
+        [appTooltip]="'تغییرات هزینه تولید به دلار'"
+        appTooltipHelperPosition="bottom"
+        >ت ه ت $</span
+      >
+      <span
+        [appTooltip]="'تغییرات سود و زیان خالص به دلار'"
+        appTooltipHelperPosition="bottom"
+        >ت س(ز)خ $</span
+      >
+      <span [appTooltip]="'اهرم ... '">اهرم</span>
     </div>
-
-
-    
-   <div>
-      <div class="tableYearHeader">
-        <span [appTooltip]="'سال مالی'" appTooltipHelperPosition="bottom">س م</span>
-        <span [appTooltip]="'فروش'" appTooltipHelperPosition="bottom">ف</span>
-        <span [appTooltip]="'هزینه تولید'" appTooltipHelperPosition="bottom">ه.ت</span>
-        <span [appTooltip]="'سود و زیان خالص'" appTooltipHelperPosition="bottom">س(ز)خ</span>
-        <span [appTooltip]="'قیمت دلار'" appTooltipHelperPosition="bottom">$</span>
-        <span [appTooltip]="'فروش به دلار'" appTooltipHelperPosition="bottom">ف $</span>
-        <span [appTooltip]="'هزینه تولید به دلار'" appTooltipHelperPosition="bottom">ه ت $</span>
-        <span [appTooltip]="'سود و زیان خالص به دلار'" appTooltipHelperPosition="bottom">س(ز)خ $</span>
-        <span [appTooltip]="'هزینه تولید به فروش'" appTooltipHelperPosition="bottom">ه ت به ف</span>
-        <span [appTooltip]="'حاشیه سود خالص'" appTooltipHelperPosition="bottom">ح س خ</span>
-        <span [appTooltip]="'تغییرات   دلار'" appTooltipHelperPosition="bottom">ت $</span>
-        <span [appTooltip]="'تغییرات فروش به دلار'" appTooltipHelperPosition="bottom">ت ف $</span>
-        <span [appTooltip]="'تغییرات هزینه تولید به دلار'" appTooltipHelperPosition="bottom">ت ه ت $</span>
-        <span [appTooltip]="'تغییرات سود و زیان خالص به دلار'" appTooltipHelperPosition="bottom">ت س(ز)خ $</span>
-        <span [appTooltip]="'اهرم ... '">اهرم</span> 
-      </div> 
-      <div class="tableYearBody" *ngFor="let yearlyStockData of stockData.yearlyStockData">
-         <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{yearlyStockData.year}}</span>
-        <span class="blue"   [appTooltip]="''" appTooltipHelperPosition="bottom">{{yearlyStockData.operatingIncome}}</span>
-        <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{yearlyStockData.costOfProductionToSales}}</span>
-        <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{yearlyStockData.costOfProductionToSales}}</span>
-        <span class="gray" [appTooltip]="''" appTooltipHelperPosition="bottom">{{yearlyStockData.dollarPrice?.price}}</span>
-        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">ف $</span>
-        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">ه ت $</span>
-        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">س(ز)خ $</span>
-        <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">ه ت به ف</span>
-        <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">ح س خ</span>
-        <span class="gray" [appTooltip]="''" appTooltipHelperPosition="bottom">ت $</span>
-        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">ت ف $</span>
-        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">ت ه ت $</span>
-        <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">ت س(ز)خ $</span>
-        <span class="gray" [appTooltip]="''">اهرم</span> 
-      </div>
+    <div
+      class="tableYearBody"
+      *ngFor="let yearlyStockData of stockData.yearlyStockData"
+    >
+      <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{
+        yearlyStockData.year
+      }}</span>
+      <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{
+        yearlyStockData.operatingIncome
+      }}</span>
+      <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{
+        yearlyStockData.costOfProductionToSales
+      }}</span>
+      <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{
+        yearlyStockData.costOfProductionToSales
+      }}</span>
+      <span class="gray" [appTooltip]="''" appTooltipHelperPosition="bottom">{{
+        yearlyStockData.dollarPrice?.price
+      }}</span>
+      <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom"
+        >ف $</span
+      >
+      <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom"
+        >ه ت $</span
+      >
+      <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom"
+        >س(ز)خ $</span
+      >
+      <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom"
+        >ه ت به ف</span
+      >
+      <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom"
+        >ح س خ</span
+      >
+      <span class="gray" [appTooltip]="''" appTooltipHelperPosition="bottom"
+        >ت $</span
+      >
+      <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom"
+        >ت ف $</span
+      >
+      <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom"
+        >ت ه ت $</span
+      >
+      <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom"
+        >ت س(ز)خ $</span
+      >
+      <span class="gray" [appTooltip]="''">اهرم</span>
     </div>
+  </div>
 
+  <div class="sectionTwo mt-64">
+    <div class="tableMonthHeader">
+      <div class="year">
+        <span [appTooltip]="'سال'" appTooltipHelperPosition="bottom">سال</span>
+      </div>
+      <div class="season">
+        <span [appTooltip]="'فصل'" appTooltipHelperPosition="bottom">فصل</span>
+      </div>
+      <div class="month">
+        <span [appTooltip]="'ماه'" appTooltipHelperPosition="bottom">ماه</span>
+      </div>
+
+      <div class="afterMonth">
+        <span
+          class="month"
+          [appTooltip]="'ماه'"
+          appTooltipHelperPosition="bottom"
+          >بر اساس گزارش ماهیانه</span
+        >
+        <div>
+          <span
+            class="headerItem !w-[100px]"
+            [appTooltip]="'فروش ماهیانه'"
+            appTooltipHelperPosition="bottom"
+            >فروش ماهیانه</span
+          >
+          <span
+            class="headerItem !w-[100px]"
+            [appTooltip]="'فروش فصلی'"
+            appTooltipHelperPosition="bottom"
+            >فروش فصلی</span
+          >
+        </div>
+      </div>
+
+      <div class="hearBigItem">
+        <div class="afterMonth">
+          <span [appTooltip]="'ماه'" appTooltipHelperPosition="bottom"
+            >بر اساس گزارشات فصلی ( میلیون ریال )</span
+          >
+          <div>
+            <span
+              class="headerItem !w-[300px]"
+              [appTooltip]="'گزارش دوره های 3 و 6 و 9 و 12 ماهه کدال'"
+              appTooltipHelperPosition="bottom"
+              >گزارش دوره های 3 و 6 و 9 و 12 ماهه کدال</span
+            >
+            <span
+              class="headerItem !w-[700px]"
+              [appTooltip]="'بر اساس فصل های بهار تابستان پاییز و زمستان'"
+              appTooltipHelperPosition="bottom"
+              >بر اساس فصل های بهار تابستان پاییز و زمستان</span
+            >
+          </div>
+        </div>
+
+        <div class="inline-block">
+          <span
+            class="headerItem"
+            [appTooltip]="'فروش'"
+            appTooltipHelperPosition="bottom"
+            >ف</span
+          >
+          <span
+            class="headerItem"
+            [appTooltip]="'هزینه تولید'"
+            appTooltipHelperPosition="bottom"
+            >ه ت</span
+          >
+          <span
+            class="headerItem"
+            [appTooltip]="'سود خالص'"
+            appTooltipHelperPosition="bottom"
+            >س خ</span
+          >
+          <span
+            class="headerItem"
+            [appTooltip]="'فروش فصل'"
+            appTooltipHelperPosition="bottom"
+            >ف فصل</span
+          >
+          <span
+            class="headerItem"
+            [appTooltip]="'هزینه تولید فصل'"
+            appTooltipHelperPosition="bottom"
+            >ه ت فصل</span
+          >
+          <span
+            class="headerItem"
+            [appTooltip]="'سود و زیان خالص فصل'"
+            appTooltipHelperPosition="bottom"
+            >س (ز) خ فصل</span
+          >
+          <span
+            class="headerItem"
+            [appTooltip]="'تولید فصل *'"
+            appTooltipHelperPosition="bottom"
+            >ت ف</span
+          >
+          <span
+            class="headerItem"
+            [appTooltip]="'نمیدونم'"
+            appTooltipHelperPosition="bottom"
+            >ت ه ت</span
+          >
+          <span
+            class="headerItem"
+            [appTooltip]="'هزینه تولید به فروش'"
+            appTooltipHelperPosition="bottom"
+            >ه ت به ف</span
+          >
+          <span
+            class="headerItem"
+            [appTooltip]="'حاشیه سود خالص'"
+            appTooltipHelperPosition="bottom"
+            >ح س خ</span
+          >
+        </div>
+      </div>
+
+      <span
+        class="last"
+        [appTooltip]="'م ح س'"
+        appTooltipHelperPosition="bottom"
+        >م ح س</span
+      >
+    </div>
+    <div
+      class="tableMonthBody"
+      *ngFor="let monthlyStockData of stockData.monthlyStockData"
+    >
+      <span
+        class="gray !w-[84px] !h-[-webkit-fill-available] text-center content-center"
+        [appTooltip]="''"
+        appTooltipHelperPosition="bottom"
+        >{{ monthlyStockData.year }}</span
+      >
+      <div class="flex flex-col">
+        <div class="flex">
+          <span
+            class="green !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >بهار</span
+          >
+          <div>
+            <div>
+              <div>
+                <span
+                  class="green"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >1</span
+                >
+                <span
+                  class="green"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >{{ monthlyStockData.m1 }}</span
+                >
+              </div>
+              <div>
+                <span
+                  class="green"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >2</span
+                >
+                <span
+                  class="green"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >{{ monthlyStockData.m2 }}</span
+                >
+              </div>
+              <div>
+                <span
+                  class="green"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >3</span
+                >
+                <span
+                  class="green"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >{{ monthlyStockData.m3 }}</span
+                >
+              </div>
+            </div>
+          </div>
+          <span
+            class="green !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >{{ monthlyStockData.seals3Monthly }}</span
+          >
+          <span
+            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="yellow !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="yellow !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="yellow !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="orange !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="orange !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="greenyellow !h-[-webkit-fill-available] text-center content-center" 
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="greenyellow !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+        </div>
+
+        <div class="flex">
+          <span
+            class="yellow !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >تابستان</span
+          >
+          <div>
+            <div>
+              <div>
+                <span
+                  class="yellow"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >4</span
+                >
+                <span
+                  class="yellow"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >{{ monthlyStockData.m4 }}</span
+                >
+              </div>
+              <div>
+                <span
+                  class="yellow"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >5</span
+                >
+                <span
+                  class="yellow"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >{{ monthlyStockData.m5 }}</span
+                >
+              </div>
+              <div>
+                <span
+                  class="yellow"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >6</span
+                >
+                <span
+                  class="yellow"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >{{ monthlyStockData.m6 }}</span
+                >
+              </div>
+            </div>
+          </div>
+          <span
+            class="yellow !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >{{ monthlyStockData.seals6Monthly }}</span
+          >
+          <span
+            class="lightslategrey !h-[-webkit-fill-available] text-center content-center "
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="yellow !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="yellow !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="yellow !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="orange !h-[-webkit-fill-available] text-center content-center" 
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="orange !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="greenyellow !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="greenyellow !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+        </div>
+
+        <div class="flex">
+          <span
+            class="orange !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >پاییز</span
+          >
+          <div>
+            <div>
+              <div>
+                <span
+                  class="orange"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >7</span
+                >
+                <span
+                  class="orange"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >{{ monthlyStockData.m7 }}</span
+                >
+              </div>
+              <div>
+                <span
+                  class="orange"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >8</span
+                >
+                <span
+                  class="orange"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >{{ monthlyStockData.m8 }}</span
+                >
+              </div>
+              <div>
+                <span
+                  class="orange"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >9</span
+                >
+                <span
+                  class="orange"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >{{ monthlyStockData.m9 }}</span
+                >
+              </div>
+            </div>
+          </div>
+          <span
+            class="orange !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >{{ monthlyStockData.seals6Monthly }}</span
+          >
+          <span
+            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="yellow !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="yellow !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="yellow !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="orange !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="orange !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="greenyellow !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="greenyellow !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+        </div>
+
+        <div class="flex">
+          <span
+            class="blue !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >زمستان</span
+          >
+          <div>
+            <div>
+              <div>
+                <span
+                  class="blue"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >10</span
+                >
+                <span
+                  class="blue"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >{{ monthlyStockData.m10 }}</span
+                >
+              </div>
+              <div>
+                <span
+                  class="blue"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >11</span
+                >
+                <span
+                  class="blue"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >{{ monthlyStockData.m11 }}</span
+                >
+              </div>
+              <div>
+                <span
+                  class="blue"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >12</span
+                >
+                <span
+                  class="blue"
+                  [appTooltip]="''"
+                  appTooltipHelperPosition="bottom"
+                  >{{ monthlyStockData.m12 }}</span
+                >
+              </div>
+            </div>
+          </div>
+          <span
+            class="blue !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >{{ monthlyStockData.seals6Monthly }}</span
+          >
+          <span
+            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="yellow !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="yellow !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="yellow !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="orange !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="orange !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="greenyellow !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+          <span
+            class="greenyellow !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >1234</span
+          >
+        </div>
+      </div>
+      <span
+        class="gray  !h-[-webkit-fill-available] text-center content-center"
+        [appTooltip]="''"
+        appTooltipHelperPosition="bottom"
+        >{{ monthlyStockData.year }}</span
+      >
+    </div>
+  </div>
 
   <div></div>
   <div></div>
