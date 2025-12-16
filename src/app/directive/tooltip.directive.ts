@@ -19,6 +19,9 @@ export class TooltipDirective {
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   @HostListener('mouseenter') onMouseEnter() {
+    if (this.tooltipText.length == 0 ) {
+     return ; 
+    }
     this.tooltipElement = this.renderer.createElement('span');
     const rect = this.el.nativeElement.getBoundingClientRect();
 
@@ -33,7 +36,7 @@ export class TooltipDirective {
     this.renderer.setStyle(this.tooltipElement, 'padding', '4px 8px');
     this.renderer.setStyle(this.tooltipElement, 'height', 'fit-content');
     this.renderer.setStyle(this.tooltipElement, 'borderRadius', '4px');
-    this.renderer.setStyle(this.tooltipElement, 'top', `8px`);
+    // this.renderer.setStyle(this.tooltipElement, 'top', `8px`);
     this.renderer.setStyle(this.tooltipElement, 'left', `48px`);
     this.renderer.setStyle(this.tooltipElement, 'width', `max-content`);
     this.renderer.setStyle(this.tooltipElement, 'font-size', `small`);
@@ -73,7 +76,7 @@ export class TooltipDirective {
       // this.renderer.setStyle(this.tooltipElement, 'top', `${top}px`);
       // this.renderer.setStyle(this.tooltipElement, 'left', `${left}px`);
 
-      this.renderer.setStyle(this.tooltipElement, 'bottom', `${10}px`);
+      this.renderer.setStyle(this.tooltipElement, 'bottom', `${-28}px`);
       this.renderer.setStyle(this.tooltipElement, 'left', `${0}px`);
     }
   }

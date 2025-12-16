@@ -3,6 +3,7 @@ import UserDM from '../store/dataModels/userDM';
 import { HttpRequestService } from '../services/http-request.service';
 import { JsonParser } from '../utils/jsonparser';
 import StockDM from '../store/dataModels/stockDM';
+import { orderBy } from 'lodash';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +26,9 @@ export class StockApiService {
    const data: any = await this.httpRequest.GET(
         'get_stock_data/'+id 
       );
-      return JsonParser.deserializeObject(data, StockDM);
+      const stock = JsonParser.deserializeObject(data, StockDM) ;
+      stock.yearlyStockData = orderBy(stock.yearlyStockData , ['year' ], ['asc' ]);
+      return stock ;
 
   }
 

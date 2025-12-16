@@ -1,5 +1,5 @@
 <div class="block">
-  <div class="w-36">
+  <!-- <div class="w-36">
     <core-btn
       (btnClicked)="('')"
       class="col-span-1 inline-block m-2"
@@ -66,7 +66,7 @@
       [colorState]="'success'"
       >رهاورد</core-btn
     >
-  </div>
+  </div> -->
 
   <div>
     <div class="tableYearHeader">
@@ -133,44 +133,44 @@
       }}</span>
       <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{
         yearlyStockData.operatingIncome
-      }}</span>
+      }}</span> 
       <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{
-        yearlyStockData.costOfProductionToSales
+        yearlyStockData.productionCost
       }}</span>
-      <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{
-        yearlyStockData.costOfProductionToSales
+         <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{
+        yearlyStockData.netProfitAndLoss
       }}</span>
       <span class="gray" [appTooltip]="''" appTooltipHelperPosition="bottom">{{
         yearlyStockData.dollarPrice?.price
       }}</span>
       <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom"
-        >ف $</span
+        >{{ yearlyStockData.operatingIncomeInDollars | number:'1.2-2' }}</span
       >
       <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom"
-        >ه ت $</span
+        > {{ yearlyStockData.productionCostInDollars | number:'1.2-2'}}</span
       >
       <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom"
-        >س(ز)خ $</span
+        >  {{ yearlyStockData.netProfitAndLossInDollars | number:'1.2-2' }} </span
       >
       <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom"
-        >ه ت به ف</span
+        > {{ ( yearlyStockData.costOfProductionToSales * 100 )  | number:'1.2-2' }}% </span
       >
       <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom"
-        >ح س خ</span
+        > {{ (yearlyStockData.netProfitMargin * 100 )  | number:'1.2-2'}}% </span
       >
       <span class="gray" [appTooltip]="''" appTooltipHelperPosition="bottom"
-        >ت $</span
+        > {{ (yearlyStockData.dollarChanges * 100 )  | number:'1.2-2' }}% </span
       >
       <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom"
-        >ت ف $</span
+        > {{ ( yearlyStockData.operatingIncomeInDollarsChanges * 100 )  | number:'1.2-2'}}% </span
       >
       <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom"
-        >ت ه ت $</span
+        > {{ ( yearlyStockData.productionCostInDollarsChanges * 100 )  | number:'1.2-2'}}% </span
       >
       <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom"
-        >ت س(ز)خ $</span
+        > {{  ( yearlyStockData.netProfitAndLossInDollarsChanges * 100 )  | number:'1.2-2' }}% </span
       >
-      <span class="gray" [appTooltip]="''">اهرم</span>
+      <span class="gray" [appTooltip]="''"> {{ yearlyStockData.leverage  | number:'1.2-2'}} </span>
     </div>
   </div>
 
