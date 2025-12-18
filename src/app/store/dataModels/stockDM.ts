@@ -10,7 +10,7 @@ export default class StockDM extends Datamodel {
   @JsonProperty('name', String, true) name = '';
   @JsonProperty('price', Number, true) price = 0;
   @JsonProperty('tsetmc-link', String, true) tsetmcLink = '';
-  @JsonProperty('rahavard-link', String, true) rahavardLink =  '';
+  @JsonProperty('rahavard-link', String, true) rahavardLink = '';
   @JsonProperty('codal-link', String, true) codalLink = '';
   @JsonProperty('last-price', Number, true) lastPrice = 0;
   @JsonProperty('p-e-ttm', Number, true) PETtm = 0;
@@ -18,7 +18,8 @@ export default class StockDM extends Datamodel {
   @JsonProperty('tsetmc-id', String, true) tsetmcId = '';
   @JsonProperty('last-dp', Number, true) lastDp = 0;
   @JsonProperty('category', CategoryDM, true) category = false;
-    @JsonProperty('monthly_stock_data', [MonthlyStockDataDM], true) monthlyStockData : MonthlyStockDataDM[] | undefined = undefined;
-    @JsonProperty('yearly_stock_data', [YearlyStockDataDM], true) yearlyStockData:YearlyStockDataDM[] | undefined = undefined;
+  @JsonProperty('monthly_stock_data', [MonthlyStockDataDM], true)
+  monthlyStockData: MonthlyStockDataDM[] | undefined = undefined;
+  @JsonProperty('yearly_stock_data', [YearlyStockDataDM], true)
+  yearlyStockData: YearlyStockDataDM[] | undefined = undefined;
 }
- 

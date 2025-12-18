@@ -303,7 +303,7 @@
     </div>
     <div
       class="tableMonthBody"
-      *ngFor="let monthlyStockData of stockData.monthlyStockData"
+      *ngFor="let monthlyStockData of stockData.monthlyStockData ; "
     >
       <span
         class="gray !w-[84px] !h-[-webkit-fill-available] text-center content-center"
@@ -312,7 +312,7 @@
         >{{ monthlyStockData.year }}</span
       >
       <div class="flex flex-col">
-        <div class="flex">
+        <div class="flex text-black" [ngClass]="{'forwardColor' : monthlyStockData.lastReportMonth <= 3 }">
           <span
             class="green !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
@@ -346,7 +346,7 @@
                   class="green"
                   [appTooltip]="''"
                   appTooltipHelperPosition="bottom"
-                  >{{ monthlyStockData.m2 }}</span
+                  >{{ monthlyStockData.lastReportMonth <= 2 ? forwardMonthlyStockData.m2 : monthlyStockData.m2 }}</span
                 >
               </div>
               <div>
@@ -360,7 +360,7 @@
                   class="green"
                   [appTooltip]="''"
                   appTooltipHelperPosition="bottom"
-                  >{{ monthlyStockData.m3 }}</span
+                  >{{ monthlyStockData.lastReportMonth <= 3 ? forwardMonthlyStockData.m3 :  monthlyStockData.m3 }}</span
                 >
               </div>
             </div>
@@ -369,43 +369,49 @@
             class="green !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >{{ monthlyStockData.seals3Monthly }}</span
+            >
+            <ng-container *ngIf="monthlyStockData.lastReportMonth <= 3">
+              {{ forwardMonthlyStockData.m1 +  forwardMonthlyStockData.m2 + forwardMonthlyStockData.m3 }}
+            </ng-container>
+            <ng-container  *ngIf="monthlyStockData.lastReportMonth > 3">
+                {{ monthlyStockData.m1 +  monthlyStockData.m2 + monthlyStockData.m3 }}
+            </ng-container>
+            </span>
+          <span
+            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >{{ monthlyStockData.lastReportMonth <= 3 ? forwardMonthlyStockData.operatingIncome3Monthly : monthlyStockData.operatingIncome3Monthly }}</span 
           >
           <span
             class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >1234</span
+            >{{ monthlyStockData.lastReportMonth <= 3 ? forwardMonthlyStockData.productionCost3Monthly : monthlyStockData.productionCost3Monthly }}</span 
           >
           <span
             class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >1234</span
-          >
-          <span
-            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >1234</span
+            >{{ monthlyStockData.lastReportMonth <= 3 ? forwardMonthlyStockData.netProfitAndLoss3Monthly : monthlyStockData.netProfitAndLoss3Monthly }}</span
           >
           <span
             class="yellow !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >1234</span
+            >{{ monthlyStockData.lastReportMonth <= 3 ? forwardMonthlyStockData.operatingIncomeFirstSeason : monthlyStockData.operatingIncomeFirstSeason }}</span
           >
           <span
             class="yellow !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >1234</span
+            >{{ monthlyStockData.lastReportMonth <= 3 ? forwardMonthlyStockData.productionCostFirstSeason : monthlyStockData.productionCostFirstSeason }}</span
           >
           <span
             class="yellow !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >1234</span
+            >{{ monthlyStockData.lastReportMonth <= 3 ? forwardMonthlyStockData.netProfitAndLossFirstSeason : monthlyStockData.netProfitAndLossFirstSeason }}</span
           >
           <span
             class="orange !h-[-webkit-fill-available] text-center content-center"
@@ -433,7 +439,7 @@
           >
         </div>
 
-        <div class="flex">
+        <div class="flex text-black" [ngClass]="{'forwardColor' :  monthlyStockData.lastReportMonth <= 6 }">
           <span
             class="yellow !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
@@ -453,7 +459,7 @@
                   class="yellow"
                   [appTooltip]="''"
                   appTooltipHelperPosition="bottom"
-                  >{{ monthlyStockData.m4 }}</span
+                  >{{ monthlyStockData.lastReportMonth <= 4 ? forwardMonthlyStockData.m4 : monthlyStockData.m4 }}</span
                 >
               </div>
               <div>
@@ -467,7 +473,7 @@
                   class="yellow"
                   [appTooltip]="''"
                   appTooltipHelperPosition="bottom"
-                  >{{ monthlyStockData.m5 }}</span
+                  >{{ monthlyStockData.lastReportMonth <= 5 ? forwardMonthlyStockData.m5 : monthlyStockData.m5 }}</span
                 >
               </div>
               <div>
@@ -481,7 +487,7 @@
                   class="yellow"
                   [appTooltip]="''"
                   appTooltipHelperPosition="bottom"
-                  >{{ monthlyStockData.m6 }}</span
+                  >{{ monthlyStockData.lastReportMonth <= 6 ? forwardMonthlyStockData.m6 : monthlyStockData.m6 }}</span
                 >
               </div>
             </div>
@@ -490,43 +496,50 @@
             class="yellow !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >{{ monthlyStockData.seals6Monthly }}</span
+            >
+            <ng-container *ngIf="monthlyStockData.lastReportMonth <= 6">
+              {{ forwardMonthlyStockData.m4 +  forwardMonthlyStockData.m5 + forwardMonthlyStockData.m6 }}
+            </ng-container>
+            <ng-container  *ngIf="monthlyStockData.lastReportMonth > 6">
+                {{ monthlyStockData.m4 +  monthlyStockData.m5 + monthlyStockData.m6 }}
+            </ng-container>
+             </span
           >
           <span
             class="lightslategrey !h-[-webkit-fill-available] text-center content-center "
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >1234</span
+            >{{  monthlyStockData.lastReportMonth <= 6 ? forwardMonthlyStockData.operatingIncome6Monthly : monthlyStockData.operatingIncome6Monthly }}</span
           >
           <span
             class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >1234</span
+            >{{  monthlyStockData.lastReportMonth <= 6 ? forwardMonthlyStockData.productionCost6Monthly : monthlyStockData.productionCost6Monthly }}</span
           >
           <span
             class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >1234</span
+            >{{  monthlyStockData.lastReportMonth <= 6 ? forwardMonthlyStockData.netProfitAndLoss6Monthly : monthlyStockData.netProfitAndLoss6Monthly }}</span
           >
           <span
             class="yellow !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >1234</span
+            >{{  monthlyStockData.lastReportMonth <= 6 ? forwardMonthlyStockData.operatingIncomeSecondSeason : monthlyStockData.operatingIncomeSecondSeason }}</span
           >
           <span
             class="yellow !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >1234</span
+            >{{  monthlyStockData.lastReportMonth <= 6 ? forwardMonthlyStockData.productionCostSecondSeason : monthlyStockData.productionCostSecondSeason }}</span
           >
           <span
             class="yellow !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >1234</span
+            >{{  monthlyStockData.lastReportMonth <= 6 ? forwardMonthlyStockData.netProfitAndLossSecondSeason : monthlyStockData.netProfitAndLossSecondSeason }}</span
           >
           <span
             class="orange !h-[-webkit-fill-available] text-center content-center" 
@@ -554,7 +567,7 @@
           >
         </div>
 
-        <div class="flex">
+        <div class="flex text-black" [ngClass]="{'forwardColor' :  monthlyStockData.lastReportMonth <= 9 }">
           <span
             class="orange !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
@@ -574,7 +587,7 @@
                   class="orange"
                   [appTooltip]="''"
                   appTooltipHelperPosition="bottom"
-                  >{{ monthlyStockData.m7 }}</span
+                  >{{ monthlyStockData.lastReportMonth <= 7 ? forwardMonthlyStockData.m7 : monthlyStockData.m7 }}</span
                 >
               </div>
               <div>
@@ -588,7 +601,7 @@
                   class="orange"
                   [appTooltip]="''"
                   appTooltipHelperPosition="bottom"
-                  >{{ monthlyStockData.m8 }}</span
+                  >{{ monthlyStockData.lastReportMonth <= 8 ? forwardMonthlyStockData.m8 : monthlyStockData.m8 }}</span
                 >
               </div>
               <div>
@@ -602,7 +615,7 @@
                   class="orange"
                   [appTooltip]="''"
                   appTooltipHelperPosition="bottom"
-                  >{{ monthlyStockData.m9 }}</span
+                  >{{ monthlyStockData.lastReportMonth <= 9 ? forwardMonthlyStockData.m9 : monthlyStockData.m9 }}</span
                 >
               </div>
             </div>
@@ -611,43 +624,50 @@
             class="orange !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >{{ monthlyStockData.seals6Monthly }}</span
+            >
+            <ng-container  *ngIf="monthlyStockData.lastReportMonth <= 9">
+              {{ forwardMonthlyStockData.m7 +  forwardMonthlyStockData.m8 + forwardMonthlyStockData.m9 }}
+            </ng-container >
+            <ng-container  *ngIf="monthlyStockData.lastReportMonth > 9">
+                {{ monthlyStockData.m7 +  monthlyStockData.m8 + monthlyStockData.m9 }}
+            </ng-container>
+            </span
           >
           <span
             class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >1234</span
+            >{{ monthlyStockData.lastReportMonth <= 9 ? forwardMonthlyStockData.operatingIncome9Monthly : monthlyStockData.operatingIncome9Monthly }}</span
           >
           <span
             class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >1234</span
+            >{{ monthlyStockData.lastReportMonth <= 9 ? forwardMonthlyStockData.productionCost9Monthly : monthlyStockData.productionCost9Monthly }}</span
           >
           <span
             class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >1234</span
+            >{{ monthlyStockData.lastReportMonth <= 9 ? forwardMonthlyStockData.netProfitAndLoss9Monthly : monthlyStockData.netProfitAndLoss9Monthly }}</span
           >
           <span
             class="yellow !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >1234</span
+            >{{  monthlyStockData.lastReportMonth <= 9 ? forwardMonthlyStockData.operatingIncomeThirdSeason :monthlyStockData.operatingIncomeThirdSeason }}</span
           >
           <span
             class="yellow !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >1234</span
+            >{{  monthlyStockData.lastReportMonth <= 9 ? forwardMonthlyStockData.productionCostThirdSeason :monthlyStockData.productionCostThirdSeason }}</span
           >
           <span
             class="yellow !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >1234</span
+            >{{ monthlyStockData.lastReportMonth <= 9 ? forwardMonthlyStockData.netProfitAndLossThirdSeason : monthlyStockData.netProfitAndLossThirdSeason }}</span
           >
           <span
             class="orange !h-[-webkit-fill-available] text-center content-center"
@@ -675,9 +695,9 @@
           >
         </div>
 
-        <div class="flex">
+        <div class="flex text-black" [ngClass]="{'forwardColor' : monthlyStockData.lastReportMonth <= 12 }">
           <span
-            class="blue !h-[-webkit-fill-available] text-center content-center"
+            class="blue  !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
             >زمستان</span
@@ -695,7 +715,7 @@
                   class="blue"
                   [appTooltip]="''"
                   appTooltipHelperPosition="bottom"
-                  >{{ monthlyStockData.m10 }}</span
+                  >{{  monthlyStockData.lastReportMonth <= 10 ? forwardMonthlyStockData.m10 : monthlyStockData.m10 }}</span
                 >
               </div>
               <div>
@@ -709,7 +729,7 @@
                   class="blue"
                   [appTooltip]="''"
                   appTooltipHelperPosition="bottom"
-                  >{{ monthlyStockData.m11 }}</span
+                  >{{ monthlyStockData.lastReportMonth <= 11 ? forwardMonthlyStockData.m11 : monthlyStockData.m11 }}</span
                 >
               </div>
               <div>
@@ -723,7 +743,7 @@
                   class="blue"
                   [appTooltip]="''"
                   appTooltipHelperPosition="bottom"
-                  >{{ monthlyStockData.m12 }}</span
+                  >{{monthlyStockData.lastReportMonth <= 12 ? forwardMonthlyStockData.m12 : monthlyStockData.m12 }}</span
                 >
               </div>
             </div>
@@ -732,43 +752,49 @@
             class="blue !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >{{ monthlyStockData.seals6Monthly }}</span
+            >
+             <ng-container *ngIf="monthlyStockData.lastReportMonth <= 12">
+              {{ forwardMonthlyStockData.m10 +  forwardMonthlyStockData.m11 + forwardMonthlyStockData.m12 }}
+            </ng-container>
+            <ng-container  *ngIf="monthlyStockData.lastReportMonth > 12">
+                {{ monthlyStockData.m10 +  monthlyStockData.m11 + monthlyStockData.m12 }}
+            </ng-container>
+            </span>
+          <span
+            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+            [appTooltip]="''"
+            appTooltipHelperPosition="bottom"
+            >{{ monthlyStockData.lastReportMonth <= 12 ? forwardMonthlyStockData.operatingIncome12Monthly : monthlyStockData.operatingIncome12Monthly }}</span
           >
           <span
             class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >1234</span
+            >{{ monthlyStockData.lastReportMonth <= 12 ? forwardMonthlyStockData.productionCost12Monthly : monthlyStockData.productionCost12Monthly }}</span
           >
           <span
             class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >1234</span
-          >
-          <span
-            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >1234</span
+            >{{ monthlyStockData.lastReportMonth <= 12 ? forwardMonthlyStockData.netProfitAndLoss12Monthly : monthlyStockData.netProfitAndLoss12Monthly }}</span
           >
           <span
             class="yellow !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >1234</span
+            >{{ monthlyStockData.lastReportMonth <= 12 ? forwardMonthlyStockData.operatingIncomeFourthSeason : monthlyStockData.operatingIncomeFourthSeason }}</span
           >
           <span
             class="yellow !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >1234</span
+            >{{ monthlyStockData.lastReportMonth <= 12 ? forwardMonthlyStockData.productionCostFourthSeason : monthlyStockData.productionCostFourthSeason }}</span
           >
           <span
             class="yellow !h-[-webkit-fill-available] text-center content-center"
             [appTooltip]="''"
             appTooltipHelperPosition="bottom"
-            >1234</span
+            >{{ monthlyStockData.lastReportMonth <= 12 ? forwardMonthlyStockData.netProfitAndLossFourthSeason : monthlyStockData.netProfitAndLossFourthSeason }}</span
           >
           <span
             class="orange !h-[-webkit-fill-available] text-center content-center"
@@ -790,7 +816,7 @@
           >
           <span
             class="greenyellow !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
+            [appTooltip]=" monthlyStockData.lastReportMonth <= 12  ? forwardMessage : ''"
             appTooltipHelperPosition="bottom"
             >1234</span
           >

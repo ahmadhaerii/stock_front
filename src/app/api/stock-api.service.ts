@@ -28,6 +28,7 @@ export class StockApiService {
       );
       const stock = JsonParser.deserializeObject(data, StockDM) ;
       stock.yearlyStockData = orderBy(stock.yearlyStockData , ['year' ], ['asc' ]);
+      stock.monthlyStockData = orderBy(stock.monthlyStockData , ['year' ], ['asc' ]);
       return stock ;
 
   }

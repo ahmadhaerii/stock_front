@@ -8,7 +8,7 @@ import { UserLanguage } from '../services/label-manager.service';
 export class ApplicationDS {
   private _router = inject(Router);
   public _language: UserLanguage = UserLanguage.FA;
-
+  public inflationRate = 40 ; 
   constructor() {}
 
   get language() {
