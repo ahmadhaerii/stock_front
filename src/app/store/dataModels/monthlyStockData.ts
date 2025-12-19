@@ -77,7 +77,11 @@ export default class MonthlyStockDataDM extends Datamodel {
   get productionCostFirstSeason(){
     return this.productionCost3Monthly ;
   }
- 
+  get netProfitMarginFirstSeason(){
+    return this.netProfitAndLossFirstSeason / this.operatingIncomeFirstSeason ; 
+  }
+
+
 
   get operatingIncomeSecondSeason(){
     return this.operatingIncome6Monthly  - this.operatingIncome3Monthly ;
@@ -88,6 +92,11 @@ export default class MonthlyStockDataDM extends Datamodel {
   get productionCostSecondSeason(){
     return this.productionCost6Monthly - this.productionCost3Monthly ;
   }
+  get netProfitMarginSecondSeason(){
+    return this.netProfitAndLossSecondSeason / this.operatingIncomeSecondSeason ; 
+  }
+
+
   
   get operatingIncomeThirdSeason(){
     return this.operatingIncome9Monthly - this.operatingIncome6Monthly ;
@@ -98,7 +107,11 @@ export default class MonthlyStockDataDM extends Datamodel {
   get productionCostThirdSeason(){
     return this.productionCost9Monthly - this.productionCost6Monthly ;
   }
-  
+  get netProfitMarginThirdSeason(){
+    return this.netProfitAndLossThirdSeason / this.operatingIncomeThirdSeason ; 
+  }
+
+
   get operatingIncomeFourthSeason(){
     return this.operatingIncome12Monthly - this.operatingIncome9Monthly ;
   }
@@ -108,6 +121,13 @@ export default class MonthlyStockDataDM extends Datamodel {
   get productionCostFourthSeason(){
     return this.productionCost12Monthly - this.productionCost9Monthly ; 
   }
+  get netProfitMarginFourthSeason(){
+    return this.netProfitAndLossFourthSeason / this.operatingIncomeFourthSeason ; 
+  }
  
+
+  get yearlyNetProfitMargin(){
+    return (this.netProfitMarginFourthSeason +  this.netProfitMarginThirdSeason + this.netProfitMarginSecondSeason + this.netProfitMarginFirstSeason ) / 4 ;
+  }
   
 }

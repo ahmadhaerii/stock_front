@@ -17,6 +17,8 @@ import StockDM from 'src/app/store/dataModels/stockDM';
 export class StockPageComponent {
   loading = false;
   stockData: StockDM = new StockDM();
+  currentYear = moment().format('jYYYY');
+
   forwardMessage = 'موارد آبی رنگ ، به صورت forward  است ';
   forwardMonthlyStockData : MonthlyStockDataDM = new MonthlyStockDataDM();
   constructor(private stockCS: StockCS, private applicationDS: ApplicationDS) {}
@@ -25,20 +27,19 @@ export class StockPageComponent {
     this.loading = true;
     const data = await this.stockCS.getStockData(1);
     this.stockData = data;
-    const date = moment();
-    const monthlyStockData = this.stockData.monthlyStockData?.find((monthlyStockData)=> monthlyStockData.year === date.format('jYYYY'));
+    const monthlyStockData = this.stockData.monthlyStockData?.find((monthlyStockData)=> monthlyStockData.year === this.currentYear);
     if (monthlyStockData) {
-      this.calculateForwardValues(cloneDeep(monthlyStockData));
+      this.calculateForwardValues(monthlyStockData);
     } 
     this.loading = false;
   }
-  calculateForwardValues( monthlyStockData : MonthlyStockDataDM) {
-    
-      const inflation = ((this.applicationDS.inflationRate / 12 ) / 100 ) + 1 ;
+  calculateForwardValues( mainMonthlyStockData : MonthlyStockDataDM) {
+      const monthlyStockData : MonthlyStockDataDM  = cloneDeep(mainMonthlyStockData)
+      let inflation = ((this.applicationDS.inflationRate / 12 ) / 100 ) + 1 ;
 
       if (
-        monthlyStockData.lastReportMonth >= 1 &&
-        monthlyStockData.lastReportMonth <= 5
+        mainMonthlyStockData.lastReportMonth >= 1 &&
+        mainMonthlyStockData.lastReportMonth <= 5
       ) {
         if (monthlyStockData.m1 === 0) {
           return;
@@ -72,9 +73,10 @@ export class StockPageComponent {
         monthlyStockData.m12 =Math.round( average *  inflation);
 
       } else if (
-        monthlyStockData.lastReportMonth >= 6 &&
-        monthlyStockData.lastReportMonth <= 12
+        mainMonthlyStockData.lastReportMonth >= 6 &&
+        mainMonthlyStockData.lastReportMonth <= 12
       ) {
+        inflation =   1 ;
 
         if (monthlyStockData.m6 === 0) {
             const average =  (monthlyStockData.m1 + monthlyStockData.m2 + monthlyStockData.m3 + monthlyStockData.m4  + monthlyStockData.m5) / 5  ;
@@ -113,6 +115,39 @@ export class StockPageComponent {
         }
          
       }
+      if(  mainMonthlyStockData.lastReportMonth <=3){
+        // monthlyStockData.operatingIncome3Monthly = get from before year
+      }
+      if(  mainMonthlyStockData.lastReportMonth >3 &&   mainMonthlyStockData.lastReportMonth <= 6  ){
+        monthlyStockData.operatingIncome6Monthly = monthlyStockData.operatingIncome3Monthly + ( monthlyStockData.m4 +  monthlyStockData.m5 +  monthlyStockData.m6) ;
+        monthlyStockData.operatingIncome9Monthly = monthlyStockData.operatingIncome6Monthly + (monthlyStockData.m7 +  monthlyStockData.m8 +  monthlyStockData.m9) ;
+        monthlyStockData.operatingIncome12Monthly = monthlyStockData.operatingIncome9Monthly + (monthlyStockData.m10 +  monthlyStockData.m11 +  monthlyStockData.m12) ;
+
+
+        monthlyStockData.netProfitAndLoss6Monthly = monthlyStockData.operatingIncome6Monthly * monthlyStockData.netProfitMarginFirstSeason ;
+        monthlyStockData.netProfitAndLoss9Monthly = monthlyStockData.operatingIncome9Monthly * monthlyStockData.netProfitMarginFirstSeason ;
+        monthlyStockData.netProfitAndLoss12Monthly = monthlyStockData.operatingIncome12Monthly * monthlyStockData.netProfitMarginFirstSeason ;
+
+      } 
+
+ 
+      if(  mainMonthlyStockData.lastReportMonth > 6 &&   mainMonthlyStockData.lastReportMonth <= 9  ){ 
+        monthlyStockData.operatingIncome9Monthly = monthlyStockData.operatingIncome6Monthly + (monthlyStockData.m7 +  monthlyStockData.m8 +  monthlyStockData.m9) ;
+        monthlyStockData.operatingIncome12Monthly = monthlyStockData.operatingIncome9Monthly + (monthlyStockData.m10 +  monthlyStockData.m11 +  monthlyStockData.m12) ;
+
+        const netProfitMarginFirstSeason = (monthlyStockData.netProfitMarginFirstSeason + monthlyStockData.netProfitMarginSecondSeason ) / 2 ;
+        monthlyStockData.netProfitAndLoss9Monthly = monthlyStockData.operatingIncome9Monthly * netProfitMarginFirstSeason ;
+        monthlyStockData.netProfitAndLoss12Monthly = monthlyStockData.operatingIncome12Monthly * netProfitMarginFirstSeason ;
+      } 
+
+      if(  mainMonthlyStockData.lastReportMonth >9 &&   mainMonthlyStockData.lastReportMonth <= 12  ){
+        monthlyStockData.operatingIncome12Monthly = monthlyStockData.operatingIncome6Monthly + (monthlyStockData.m10 +  monthlyStockData.m11 +  monthlyStockData.m12) ;
+        const netProfitMarginFirstSeason = (monthlyStockData.netProfitMarginFirstSeason + monthlyStockData.netProfitMarginSecondSeason + monthlyStockData.netProfitMarginThirdSeason  ) / 3 ;
+        monthlyStockData.netProfitAndLoss12Monthly = monthlyStockData.operatingIncome12Monthly * netProfitMarginFirstSeason ;
+
+      } 
+
+
       this.forwardMonthlyStockData = monthlyStockData
       console.log(monthlyStockData);
   }

@@ -54,20 +54,20 @@
     text-align: center;
     width: 84px;
     display: inline-block;
-    border-right: 1px solid darkgray;
+    border-right: 1px solid black;
     height: -webkit-fill-available;
-    border-bottom: 1px solid darkgray;
+    border-bottom: 1px solid black;
   }
   .season {
     display: flex;
     align-items: center;
     align-content: center;
     text-align: center;
-    width: 100px;
+    width: 150px;
     display: inline-block;
     height: -webkit-fill-available;
-    border-right: 1px solid darkgray;
-    border-bottom: 1px solid darkgray;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
   }
   .month {
     display: flex;
@@ -75,10 +75,10 @@
     align-content: center;
     height: -webkit-fill-available;
     text-align: center;
-    width: 100px;
+    width: 150px;
     display: inline-block;
-    border-right: 1px solid darkgray;
-    border-bottom: 1px solid darkgray;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
   }
   .afterMonth {
     display: flex;
@@ -86,9 +86,9 @@
     align-content: center;
     flex-direction: column;
     height: -webkit-fill-available;
-    min-width: 200px;
-    border-right: 1px solid darkgray;
-    border-bottom: 1px solid darkgray;
+    min-width: 300px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
     .month{
       height: -webkit-fill-available;
     align-items: center;
@@ -97,13 +97,13 @@
     text-align: center;
     }
     span {
-      border-bottom: 1px solid darkgray;
+      border-bottom: 1px solid black;
       width: -webkit-fill-available;
     }
     .headerItem {
-      border-right: 1px solid darkgray;
-      border-bottom: 1px solid darkgray;
-      min-width: 100px;
+      border-right: 1px solid black;
+      border-bottom: 1px solid black;
+      width: 149px;
     }
   }
 
@@ -112,16 +112,16 @@
     align-items: center;
     align-content: center;
     text-align: center;
-    min-width: 1000px;
+    min-width: 1500px;
     flex-direction: column;
   }
   .headerItem {
     background: lightslategray;
     color: white;
     padding: 4px 0px;
-    border-right: 1px solid darkgray;
-    border-bottom: 1px solid darkgray;
-    width: 100px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    width: 150px;
     height: 32px;
     display: inline-block;
     text-align: center;
@@ -131,9 +131,9 @@
     align-items: center;
     align-content: center;
     height: -webkit-fill-available;
-    min-width: 100px;
-    border-right: 1px solid darkgray;
-    border-bottom: 1px solid darkgray;
+    min-width: 150px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
   }
 }
 
@@ -142,9 +142,9 @@
   display: flex;
   span {
     background: #69b4ff;
-    border-right: 1px solid darkgray;
-    border-bottom: 1px solid darkgray;
-    width: 100px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    width: 150px;
     height: 32px;
     display: inline-block;
     text-align: center;
@@ -183,7 +183,29 @@
 }
 
 .sectionTwo{
-      width: 1586px;
+    width: 2350px;
     overflow: auto;
     zoom: 0.8;
+    background: lightslategray;
+}
+
+
+.lastTable{
+  border: 1px solid black;
+  display: inline-block;
+  .border-left{
+    border-left: 1px solid black;
+  }
+  .red{
+    background: #ff0000;
+  }
+  .green{
+    background: #00ff61;
+  }
+  .blue{
+    background:  #2aa9ffab;
+  }
+  span{
+    padding: 8px;
+  }
 }

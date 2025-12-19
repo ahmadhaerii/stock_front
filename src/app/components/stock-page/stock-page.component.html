@@ -133,704 +133,990 @@
       }}</span>
       <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{
         yearlyStockData.operatingIncome
-      }}</span> 
+      }}</span>
       <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{
         yearlyStockData.productionCost
       }}</span>
-         <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{
+      <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">{{
         yearlyStockData.netProfitAndLoss
       }}</span>
       <span class="gray" [appTooltip]="''" appTooltipHelperPosition="bottom">{{
         yearlyStockData.dollarPrice?.price
       }}</span>
-      <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom"
-        >{{ yearlyStockData.operatingIncomeInDollars | number:'1.2-2' }}</span
+      <span
+        class="orange"
+        [appTooltip]="''"
+        appTooltipHelperPosition="bottom"
+        >{{ yearlyStockData.operatingIncomeInDollars | number : "1.2-2" }}</span
       >
-      <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom"
-        > {{ yearlyStockData.productionCostInDollars | number:'1.2-2'}}</span
+      <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">
+        {{ yearlyStockData.productionCostInDollars | number : "1.2-2" }}</span
       >
-      <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom"
-        >  {{ yearlyStockData.netProfitAndLossInDollars | number:'1.2-2' }} </span
-      >
-      <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom"
-        > {{ ( yearlyStockData.costOfProductionToSales * 100 )  | number:'1.2-2' }}% </span
-      >
-      <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom"
-        > {{ (yearlyStockData.netProfitMargin * 100 )  | number:'1.2-2'}}% </span
-      >
-      <span class="gray" [appTooltip]="''" appTooltipHelperPosition="bottom"
-        > {{ (yearlyStockData.dollarChanges * 100 )  | number:'1.2-2' }}% </span
-      >
-      <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom"
-        > {{ ( yearlyStockData.operatingIncomeInDollarsChanges * 100 )  | number:'1.2-2'}}% </span
-      >
-      <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom"
-        > {{ ( yearlyStockData.productionCostInDollarsChanges * 100 )  | number:'1.2-2'}}% </span
-      >
-      <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom"
-        > {{  ( yearlyStockData.netProfitAndLossInDollarsChanges * 100 )  | number:'1.2-2' }}% </span
-      >
-      <span class="gray" [appTooltip]="''"> {{ yearlyStockData.leverage  | number:'1.2-2'}} </span>
+      <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">
+        {{ yearlyStockData.netProfitAndLossInDollars | number : "1.2-2" }}
+      </span>
+      <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">
+        {{ yearlyStockData.costOfProductionToSales * 100 | number : "1.2-2" }}%
+      </span>
+      <span class="blue" [appTooltip]="''" appTooltipHelperPosition="bottom">
+        {{ yearlyStockData.netProfitMargin * 100 | number : "1.2-2" }}%
+      </span>
+      <span class="gray" [appTooltip]="''" appTooltipHelperPosition="bottom">
+        {{ yearlyStockData.dollarChanges * 100 | number : "1.2-2" }}%
+      </span>
+      <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">
+        {{
+          yearlyStockData.operatingIncomeInDollarsChanges * 100
+            | number : "1.2-2"
+        }}%
+      </span>
+      <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">
+        {{
+          yearlyStockData.productionCostInDollarsChanges * 100
+            | number : "1.2-2"
+        }}%
+      </span>
+      <span class="orange" [appTooltip]="''" appTooltipHelperPosition="bottom">
+        {{
+          yearlyStockData.netProfitAndLossInDollarsChanges * 100
+            | number : "1.2-2"
+        }}%
+      </span>
+      <span class="gray" [appTooltip]="''">
+        {{ yearlyStockData.leverage | number : "1.2-2" }}
+      </span>
     </div>
   </div>
 
-  <div class="sectionTwo mt-64">
-    <div class="tableMonthHeader">
-      <div class="year">
-        <span [appTooltip]="'سال'" appTooltipHelperPosition="bottom">سال</span>
-      </div>
-      <div class="season">
-        <span [appTooltip]="'فصل'" appTooltipHelperPosition="bottom">فصل</span>
-      </div>
-      <div class="month">
-        <span [appTooltip]="'ماه'" appTooltipHelperPosition="bottom">ماه</span>
-      </div>
-
-      <div class="afterMonth">
-        <span
-          class="month"
-          [appTooltip]="'ماه'"
-          appTooltipHelperPosition="bottom"
-          >بر اساس گزارش ماهیانه</span
-        >
-        <div>
-          <span
-            class="headerItem !w-[100px]"
-            [appTooltip]="'فروش ماهیانه'"
-            appTooltipHelperPosition="bottom"
-            >فروش ماهیانه</span
-          >
-          <span
-            class="headerItem !w-[100px]"
-            [appTooltip]="'فروش فصلی'"
-            appTooltipHelperPosition="bottom"
-            >فروش فصلی</span
+  <div class="w-[95vw] overflow-auto">
+    <div class="sectionTwo mt-7">
+      <div class="tableMonthHeader">
+        <div class="year">
+          <span [appTooltip]="'سال'" appTooltipHelperPosition="bottom"
+            >سال</span
           >
         </div>
-      </div>
-
-      <div class="hearBigItem">
-        <div class="afterMonth">
+        <div class="season">
+          <span [appTooltip]="'فصل'" appTooltipHelperPosition="bottom"
+            >فصل</span
+          >
+        </div>
+        <div class="month">
           <span [appTooltip]="'ماه'" appTooltipHelperPosition="bottom"
-            >بر اساس گزارشات فصلی ( میلیون ریال )</span
+            >ماه</span
+          >
+        </div>
+
+        <div class="afterMonth">
+          <span
+            class="month"
+            [appTooltip]="'ماه'"
+            appTooltipHelperPosition="bottom"
+            >بر اساس گزارش ماهیانه</span
           >
           <div>
             <span
-              class="headerItem !w-[300px]"
-              [appTooltip]="'گزارش دوره های 3 و 6 و 9 و 12 ماهه کدال'"
+              class="headerItem"
+              [appTooltip]="'فروش ماهیانه'"
               appTooltipHelperPosition="bottom"
-              >گزارش دوره های 3 و 6 و 9 و 12 ماهه کدال</span
+              >فروش ماهیانه</span
             >
             <span
-              class="headerItem !w-[700px]"
-              [appTooltip]="'بر اساس فصل های بهار تابستان پاییز و زمستان'"
+              class="headerItem"
+              [appTooltip]="'فروش فصلی'"
               appTooltipHelperPosition="bottom"
-              >بر اساس فصل های بهار تابستان پاییز و زمستان</span
+              >فروش فصلی</span
             >
           </div>
         </div>
 
-        <div class="inline-block">
-          <span
-            class="headerItem"
-            [appTooltip]="'فروش'"
-            appTooltipHelperPosition="bottom"
-            >ف</span
-          >
-          <span
-            class="headerItem"
-            [appTooltip]="'هزینه تولید'"
-            appTooltipHelperPosition="bottom"
-            >ه ت</span
-          >
-          <span
-            class="headerItem"
-            [appTooltip]="'سود خالص'"
-            appTooltipHelperPosition="bottom"
-            >س خ</span
-          >
-          <span
-            class="headerItem"
-            [appTooltip]="'فروش فصل'"
-            appTooltipHelperPosition="bottom"
-            >ف فصل</span
-          >
-          <span
-            class="headerItem"
-            [appTooltip]="'هزینه تولید فصل'"
-            appTooltipHelperPosition="bottom"
-            >ه ت فصل</span
-          >
-          <span
-            class="headerItem"
-            [appTooltip]="'سود و زیان خالص فصل'"
-            appTooltipHelperPosition="bottom"
-            >س (ز) خ فصل</span
-          >
-          <span
-            class="headerItem"
-            [appTooltip]="'تولید فصل *'"
-            appTooltipHelperPosition="bottom"
-            >ت ف</span
-          >
-          <span
-            class="headerItem"
-            [appTooltip]="'نمیدونم'"
-            appTooltipHelperPosition="bottom"
-            >ت ه ت</span
-          >
-          <span
-            class="headerItem"
-            [appTooltip]="'هزینه تولید به فروش'"
-            appTooltipHelperPosition="bottom"
-            >ه ت به ف</span
-          >
-          <span
-            class="headerItem"
-            [appTooltip]="'حاشیه سود خالص'"
-            appTooltipHelperPosition="bottom"
-            >ح س خ</span
-          >
+        <div class="hearBigItem">
+          <div class="afterMonth">
+            <span [appTooltip]="'ماه'" appTooltipHelperPosition="bottom"
+              >بر اساس گزارشات فصلی ( میلیون ریال )</span
+            >
+            <div>
+              <span
+                class="headerItem !w-[448px]"
+                [appTooltip]="'گزارش دوره های 3 و 6 و 9 و 12 ماهه کدال'"
+                appTooltipHelperPosition="bottom"
+                >گزارش دوره های 3 و 6 و 9 و 12 ماهه کدال</span
+              >
+              <span
+                class="headerItem !w-[1050px]"
+                [appTooltip]="'بر اساس فصل های بهار تابستان پاییز و زمستان'"
+                appTooltipHelperPosition="bottom"
+                >بر اساس فصل های بهار تابستان پاییز و زمستان</span
+              >
+            </div>
+          </div>
+
+          <div class="inline-block">
+            <span
+              class="headerItem"
+              [appTooltip]="'فروش'"
+              appTooltipHelperPosition="bottom"
+              >ف</span
+            >
+            <span
+              class="headerItem"
+              [appTooltip]="'هزینه تولید'"
+              appTooltipHelperPosition="bottom"
+              >ه ت</span
+            >
+            <span
+              class="headerItem"
+              [appTooltip]="'سود خالص'"
+              appTooltipHelperPosition="bottom"
+              >س خ</span
+            >
+            <span
+              class="headerItem"
+              [appTooltip]="'فروش فصل'"
+              appTooltipHelperPosition="bottom"
+              >ف فصل</span
+            >
+            <span
+              class="headerItem"
+              [appTooltip]="'هزینه تولید فصل'"
+              appTooltipHelperPosition="bottom"
+              >ه ت فصل</span
+            >
+            <span
+              class="headerItem"
+              [appTooltip]="'سود و زیان خالص فصل'"
+              appTooltipHelperPosition="bottom"
+              >س (ز) خ فصل</span
+            >
+            <span
+              class="headerItem"
+              [appTooltip]="'تولید فصل *'"
+              appTooltipHelperPosition="bottom"
+              >ت ف</span
+            >
+            <span
+              class="headerItem"
+              [appTooltip]="'نمیدونم'"
+              appTooltipHelperPosition="bottom"
+              >ت ه ت</span
+            >
+            <span
+              class="headerItem"
+              [appTooltip]="'هزینه تولید به فروش'"
+              appTooltipHelperPosition="bottom"
+              >ه ت به ف</span
+            >
+            <span
+              class="headerItem"
+              [appTooltip]="'حاشیه سود خالص'"
+              appTooltipHelperPosition="bottom"
+              >ح س خ</span
+            >
+          </div>
         </div>
+
+        <span
+          class="last"
+          [appTooltip]="'م ح س'"
+          appTooltipHelperPosition="bottom"
+          >م ح س</span
+        >
       </div>
-
-      <span
-        class="last"
-        [appTooltip]="'م ح س'"
-        appTooltipHelperPosition="bottom"
-        >م ح س</span
+      <div
+        class="tableMonthBody"
+        *ngFor="let monthlyStockData of stockData.monthlyStockData"
       >
-    </div>
-    <div
-      class="tableMonthBody"
-      *ngFor="let monthlyStockData of stockData.monthlyStockData ; "
-    >
-      <span
-        class="gray !w-[84px] !h-[-webkit-fill-available] text-center content-center"
-        [appTooltip]="''"
-        appTooltipHelperPosition="bottom"
-        >{{ monthlyStockData.year }}</span
-      >
-      <div class="flex flex-col">
-        <div class="flex text-black" [ngClass]="{'forwardColor' : monthlyStockData.lastReportMonth <= 3 }">
-          <span
-            class="green !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >بهار</span
+        <span
+          class="gray !w-[84px] !h-[-webkit-fill-available] text-center content-center"
+          [appTooltip]="''"
+          appTooltipHelperPosition="bottom"
+          >{{ monthlyStockData.year }}</span
+        >
+        <div class="flex flex-col">
+          <div
+            class="flex text-black"
+            [ngClass]="{ forwardColor: monthlyStockData.lastReportMonth <= 3 }"
           >
-          <div>
+            <span
+              class="green !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >بهار</span
+            >
             <div>
-              <div>
-                <span
-                  class="green"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >1</span
-                >
-                <span
-                  class="green"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >{{ monthlyStockData.m1 }}</span
-                >
-              </div>
-              <div>
-                <span
-                  class="green"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >2</span
-                >
-                <span
-                  class="green"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >{{ monthlyStockData.lastReportMonth <= 2 ? forwardMonthlyStockData.m2 : monthlyStockData.m2 }}</span
-                >
-              </div>
-              <div>
-                <span
-                  class="green"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >3</span
-                >
-                <span
-                  class="green"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >{{ monthlyStockData.lastReportMonth <= 3 ? forwardMonthlyStockData.m3 :  monthlyStockData.m3 }}</span
-                >
+              <div class="w-[300px]">
+                <div>
+                  <span
+                    class="green"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >1</span
+                  >
+                  <span
+                    class="green"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >{{ monthlyStockData.m1 }}</span
+                  >
+                </div>
+                <div>
+                  <span
+                    class="green"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >2</span
+                  >
+                  <span
+                    class="green"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >{{
+                      monthlyStockData.lastReportMonth <= 2
+                        ? forwardMonthlyStockData.m2
+                        : monthlyStockData.m2
+                    }}</span
+                  >
+                </div>
+                <div>
+                  <span
+                    class="green"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >3</span
+                  >
+                  <span
+                    class="green"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >{{
+                      monthlyStockData.lastReportMonth <= 3
+                        ? forwardMonthlyStockData.m3
+                        : monthlyStockData.m3
+                    }}</span
+                  >
+                </div>
               </div>
             </div>
-          </div>
-          <span
-            class="green !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
+            <span
+              class="green !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
             >
-            <ng-container *ngIf="monthlyStockData.lastReportMonth <= 3">
-              {{ forwardMonthlyStockData.m1 +  forwardMonthlyStockData.m2 + forwardMonthlyStockData.m3 }}
-            </ng-container>
-            <ng-container  *ngIf="monthlyStockData.lastReportMonth > 3">
-                {{ monthlyStockData.m1 +  monthlyStockData.m2 + monthlyStockData.m3 }}
-            </ng-container>
+              <ng-container *ngIf="monthlyStockData.lastReportMonth <= 3">
+                {{
+                  forwardMonthlyStockData.m1 +
+                    forwardMonthlyStockData.m2 +
+                    forwardMonthlyStockData.m3
+                }}
+              </ng-container>
+              <ng-container *ngIf="monthlyStockData.lastReportMonth > 3">
+                {{
+                  monthlyStockData.m1 +
+                    monthlyStockData.m2 +
+                    monthlyStockData.m3
+                }}
+              </ng-container>
             </span>
-          <span
-            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{ monthlyStockData.lastReportMonth <= 3 ? forwardMonthlyStockData.operatingIncome3Monthly : monthlyStockData.operatingIncome3Monthly }}</span 
-          >
-          <span
-            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{ monthlyStockData.lastReportMonth <= 3 ? forwardMonthlyStockData.productionCost3Monthly : monthlyStockData.productionCost3Monthly }}</span 
-          >
-          <span
-            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{ monthlyStockData.lastReportMonth <= 3 ? forwardMonthlyStockData.netProfitAndLoss3Monthly : monthlyStockData.netProfitAndLoss3Monthly }}</span
-          >
-          <span
-            class="yellow !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{ monthlyStockData.lastReportMonth <= 3 ? forwardMonthlyStockData.operatingIncomeFirstSeason : monthlyStockData.operatingIncomeFirstSeason }}</span
-          >
-          <span
-            class="yellow !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{ monthlyStockData.lastReportMonth <= 3 ? forwardMonthlyStockData.productionCostFirstSeason : monthlyStockData.productionCostFirstSeason }}</span
-          >
-          <span
-            class="yellow !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{ monthlyStockData.lastReportMonth <= 3 ? forwardMonthlyStockData.netProfitAndLossFirstSeason : monthlyStockData.netProfitAndLossFirstSeason }}</span
-          >
-          <span
-            class="orange !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >1234</span
-          >
-          <span
-            class="orange !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >1234</span
-          >
-          <span
-            class="greenyellow !h-[-webkit-fill-available] text-center content-center" 
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >1234</span
-          >
-          <span
-            class="greenyellow !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >1234</span
-          >
-        </div>
-
-        <div class="flex text-black" [ngClass]="{'forwardColor' :  monthlyStockData.lastReportMonth <= 6 }">
-          <span
-            class="yellow !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >تابستان</span
-          >
-          <div>
-            <div>
-              <div>
-                <span
-                  class="yellow"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >4</span
-                >
-                <span
-                  class="yellow"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >{{ monthlyStockData.lastReportMonth <= 4 ? forwardMonthlyStockData.m4 : monthlyStockData.m4 }}</span
-                >
-              </div>
-              <div>
-                <span
-                  class="yellow"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >5</span
-                >
-                <span
-                  class="yellow"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >{{ monthlyStockData.lastReportMonth <= 5 ? forwardMonthlyStockData.m5 : monthlyStockData.m5 }}</span
-                >
-              </div>
-              <div>
-                <span
-                  class="yellow"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >6</span
-                >
-                <span
-                  class="yellow"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >{{ monthlyStockData.lastReportMonth <= 6 ? forwardMonthlyStockData.m6 : monthlyStockData.m6 }}</span
-                >
-              </div>
-            </div>
-          </div>
-          <span
-            class="yellow !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
+            <span
+              class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                monthlyStockData.lastReportMonth <= 3
+                  ? forwardMonthlyStockData.operatingIncome3Monthly
+                  : monthlyStockData.operatingIncome3Monthly
+              }}</span
             >
-            <ng-container *ngIf="monthlyStockData.lastReportMonth <= 6">
-              {{ forwardMonthlyStockData.m4 +  forwardMonthlyStockData.m5 + forwardMonthlyStockData.m6 }}
-            </ng-container>
-            <ng-container  *ngIf="monthlyStockData.lastReportMonth > 6">
-                {{ monthlyStockData.m4 +  monthlyStockData.m5 + monthlyStockData.m6 }}
-            </ng-container>
-             </span
-          >
-          <span
-            class="lightslategrey !h-[-webkit-fill-available] text-center content-center "
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{  monthlyStockData.lastReportMonth <= 6 ? forwardMonthlyStockData.operatingIncome6Monthly : monthlyStockData.operatingIncome6Monthly }}</span
-          >
-          <span
-            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{  monthlyStockData.lastReportMonth <= 6 ? forwardMonthlyStockData.productionCost6Monthly : monthlyStockData.productionCost6Monthly }}</span
-          >
-          <span
-            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{  monthlyStockData.lastReportMonth <= 6 ? forwardMonthlyStockData.netProfitAndLoss6Monthly : monthlyStockData.netProfitAndLoss6Monthly }}</span
-          >
-          <span
-            class="yellow !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{  monthlyStockData.lastReportMonth <= 6 ? forwardMonthlyStockData.operatingIncomeSecondSeason : monthlyStockData.operatingIncomeSecondSeason }}</span
-          >
-          <span
-            class="yellow !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{  monthlyStockData.lastReportMonth <= 6 ? forwardMonthlyStockData.productionCostSecondSeason : monthlyStockData.productionCostSecondSeason }}</span
-          >
-          <span
-            class="yellow !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{  monthlyStockData.lastReportMonth <= 6 ? forwardMonthlyStockData.netProfitAndLossSecondSeason : monthlyStockData.netProfitAndLossSecondSeason }}</span
-          >
-          <span
-            class="orange !h-[-webkit-fill-available] text-center content-center" 
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >1234</span
-          >
-          <span
-            class="orange !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >1234</span
-          >
-          <span
-            class="greenyellow !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >1234</span
-          >
-          <span
-            class="greenyellow !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >1234</span
-          >
-        </div>
-
-        <div class="flex text-black" [ngClass]="{'forwardColor' :  monthlyStockData.lastReportMonth <= 9 }">
-          <span
-            class="orange !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >پاییز</span
-          >
-          <div>
-            <div>
-              <div>
-                <span
-                  class="orange"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >7</span
-                >
-                <span
-                  class="orange"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >{{ monthlyStockData.lastReportMonth <= 7 ? forwardMonthlyStockData.m7 : monthlyStockData.m7 }}</span
-                >
-              </div>
-              <div>
-                <span
-                  class="orange"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >8</span
-                >
-                <span
-                  class="orange"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >{{ monthlyStockData.lastReportMonth <= 8 ? forwardMonthlyStockData.m8 : monthlyStockData.m8 }}</span
-                >
-              </div>
-              <div>
-                <span
-                  class="orange"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >9</span
-                >
-                <span
-                  class="orange"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >{{ monthlyStockData.lastReportMonth <= 9 ? forwardMonthlyStockData.m9 : monthlyStockData.m9 }}</span
-                >
-              </div>
-            </div>
-          </div>
-          <span
-            class="orange !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
+            <span
+              class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                monthlyStockData.lastReportMonth <= 3
+                  ? forwardMonthlyStockData.productionCost3Monthly
+                  : monthlyStockData.productionCost3Monthly
+              }}</span
             >
-            <ng-container  *ngIf="monthlyStockData.lastReportMonth <= 9">
-              {{ forwardMonthlyStockData.m7 +  forwardMonthlyStockData.m8 + forwardMonthlyStockData.m9 }}
-            </ng-container >
-            <ng-container  *ngIf="monthlyStockData.lastReportMonth > 9">
-                {{ monthlyStockData.m7 +  monthlyStockData.m8 + monthlyStockData.m9 }}
-            </ng-container>
-            </span
-          >
-          <span
-            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{ monthlyStockData.lastReportMonth <= 9 ? forwardMonthlyStockData.operatingIncome9Monthly : monthlyStockData.operatingIncome9Monthly }}</span
-          >
-          <span
-            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{ monthlyStockData.lastReportMonth <= 9 ? forwardMonthlyStockData.productionCost9Monthly : monthlyStockData.productionCost9Monthly }}</span
-          >
-          <span
-            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{ monthlyStockData.lastReportMonth <= 9 ? forwardMonthlyStockData.netProfitAndLoss9Monthly : monthlyStockData.netProfitAndLoss9Monthly }}</span
-          >
-          <span
-            class="yellow !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{  monthlyStockData.lastReportMonth <= 9 ? forwardMonthlyStockData.operatingIncomeThirdSeason :monthlyStockData.operatingIncomeThirdSeason }}</span
-          >
-          <span
-            class="yellow !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{  monthlyStockData.lastReportMonth <= 9 ? forwardMonthlyStockData.productionCostThirdSeason :monthlyStockData.productionCostThirdSeason }}</span
-          >
-          <span
-            class="yellow !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{ monthlyStockData.lastReportMonth <= 9 ? forwardMonthlyStockData.netProfitAndLossThirdSeason : monthlyStockData.netProfitAndLossThirdSeason }}</span
-          >
-          <span
-            class="orange !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >1234</span
-          >
-          <span
-            class="orange !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >1234</span
-          >
-          <span
-            class="greenyellow !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >1234</span
-          >
-          <span
-            class="greenyellow !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >1234</span
-          >
-        </div>
-
-        <div class="flex text-black" [ngClass]="{'forwardColor' : monthlyStockData.lastReportMonth <= 12 }">
-          <span
-            class="blue  !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >زمستان</span
-          >
-          <div>
-            <div>
-              <div>
-                <span
-                  class="blue"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >10</span
-                >
-                <span
-                  class="blue"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >{{  monthlyStockData.lastReportMonth <= 10 ? forwardMonthlyStockData.m10 : monthlyStockData.m10 }}</span
-                >
-              </div>
-              <div>
-                <span
-                  class="blue"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >11</span
-                >
-                <span
-                  class="blue"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >{{ monthlyStockData.lastReportMonth <= 11 ? forwardMonthlyStockData.m11 : monthlyStockData.m11 }}</span
-                >
-              </div>
-              <div>
-                <span
-                  class="blue"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >12</span
-                >
-                <span
-                  class="blue"
-                  [appTooltip]="''"
-                  appTooltipHelperPosition="bottom"
-                  >{{monthlyStockData.lastReportMonth <= 12 ? forwardMonthlyStockData.m12 : monthlyStockData.m12 }}</span
-                >
-              </div>
-            </div>
-          </div>
-          <span
-            class="blue !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
+            <span
+              class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                monthlyStockData.lastReportMonth <= 3
+                  ? forwardMonthlyStockData.netProfitAndLoss3Monthly
+                  : monthlyStockData.netProfitAndLoss3Monthly
+              }}</span
             >
-             <ng-container *ngIf="monthlyStockData.lastReportMonth <= 12">
-              {{ forwardMonthlyStockData.m10 +  forwardMonthlyStockData.m11 + forwardMonthlyStockData.m12 }}
-            </ng-container>
-            <ng-container  *ngIf="monthlyStockData.lastReportMonth > 12">
-                {{ monthlyStockData.m10 +  monthlyStockData.m11 + monthlyStockData.m12 }}
-            </ng-container>
+            <span
+              class="yellow !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                monthlyStockData.lastReportMonth <= 3
+                  ? forwardMonthlyStockData.operatingIncomeFirstSeason
+                  : monthlyStockData.operatingIncomeFirstSeason
+              }}</span
+            >
+            <span
+              class="yellow !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                monthlyStockData.lastReportMonth <= 3
+                  ? ""
+                  : monthlyStockData.productionCostFirstSeason
+              }}</span
+            >
+            <span
+              class="yellow !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                monthlyStockData.lastReportMonth <= 3
+                  ? forwardMonthlyStockData.netProfitAndLossFirstSeason
+                  : monthlyStockData.netProfitAndLossFirstSeason
+              }}</span
+            >
+            <span
+              class="orange !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >1234</span
+            >
+            <span
+              class="orange !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >1234</span
+            >
+            <span
+              class="greenyellow !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >1234</span
+            >
+            <span
+              class="greenyellow !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                (monthlyStockData.lastReportMonth <= 12
+                  ? forwardMonthlyStockData.netProfitMarginFirstSeason
+                  : monthlyStockData.netProfitMarginFirstSeason) * 100
+                  | number : "1.2-2"
+              }}
             </span>
-          <span
-            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{ monthlyStockData.lastReportMonth <= 12 ? forwardMonthlyStockData.operatingIncome12Monthly : monthlyStockData.operatingIncome12Monthly }}</span
+          </div>
+
+          <div
+            class="flex text-black"
+            [ngClass]="{ forwardColor: monthlyStockData.lastReportMonth <= 6 }"
           >
-          <span
-            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{ monthlyStockData.lastReportMonth <= 12 ? forwardMonthlyStockData.productionCost12Monthly : monthlyStockData.productionCost12Monthly }}</span
+            <span
+              class="yellow !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >تابستان</span
+            >
+            <div>
+              <div class="w-[300px]">
+                <div>
+                  <span
+                    class="yellow"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >4</span
+                  >
+                  <span
+                    class="yellow"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >{{
+                      monthlyStockData.lastReportMonth <= 4
+                        ? forwardMonthlyStockData.m4
+                        : monthlyStockData.m4
+                    }}</span
+                  >
+                </div>
+                <div>
+                  <span
+                    class="yellow"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >5</span
+                  >
+                  <span
+                    class="yellow"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >{{
+                      monthlyStockData.lastReportMonth <= 5
+                        ? forwardMonthlyStockData.m5
+                        : monthlyStockData.m5
+                    }}</span
+                  >
+                </div>
+                <div>
+                  <span
+                    class="yellow"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >6</span
+                  >
+                  <span
+                    class="yellow"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >{{
+                      monthlyStockData.lastReportMonth <= 6
+                        ? forwardMonthlyStockData.m6
+                        : monthlyStockData.m6
+                    }}</span
+                  >
+                </div>
+              </div>
+            </div>
+            <span
+              class="yellow !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+            >
+              <ng-container *ngIf="monthlyStockData.lastReportMonth <= 6">
+                {{
+                  forwardMonthlyStockData.m4 +
+                    forwardMonthlyStockData.m5 +
+                    forwardMonthlyStockData.m6
+                }}
+              </ng-container>
+              <ng-container *ngIf="monthlyStockData.lastReportMonth > 6">
+                {{
+                  monthlyStockData.m4 +
+                    monthlyStockData.m5 +
+                    monthlyStockData.m6
+                }}
+              </ng-container>
+            </span>
+            <span
+              class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                monthlyStockData.lastReportMonth <= 6
+                  ? forwardMonthlyStockData.operatingIncome6Monthly
+                  : monthlyStockData.operatingIncome6Monthly
+              }}</span
+            >
+            <span
+              class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                monthlyStockData.lastReportMonth <= 6
+                  ? forwardMonthlyStockData.productionCost6Monthly
+                  : monthlyStockData.productionCost6Monthly
+              }}</span
+            >
+            <span
+              class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                monthlyStockData.lastReportMonth <= 6
+                  ? forwardMonthlyStockData.netProfitAndLoss6Monthly
+                  : monthlyStockData.netProfitAndLoss6Monthly
+              }}</span
+            >
+            <span
+              class="yellow !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                monthlyStockData.lastReportMonth <= 6
+                  ? forwardMonthlyStockData.operatingIncomeSecondSeason
+                  : monthlyStockData.operatingIncomeSecondSeason
+              }}</span
+            >
+            <span
+              class="yellow !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                monthlyStockData.lastReportMonth <= 6
+                  ? ""
+                  : monthlyStockData.productionCostSecondSeason
+              }}</span
+            >
+            <span
+              class="yellow !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                monthlyStockData.lastReportMonth <= 6
+                  ? forwardMonthlyStockData.netProfitAndLossSecondSeason
+                  : monthlyStockData.netProfitAndLossSecondSeason
+              }}</span
+            >
+            <span
+              class="orange !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >1234</span
+            >
+            <span
+              class="orange !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >1234</span
+            >
+            <span
+              class="greenyellow !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >1234</span
+            >
+            <span
+              class="greenyellow !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+            >
+              {{
+                (monthlyStockData.lastReportMonth <= 12
+                  ? forwardMonthlyStockData.netProfitMarginSecondSeason
+                  : monthlyStockData.netProfitMarginSecondSeason) * 100
+                  | number : "1.2-2"
+              }}
+            </span>
+          </div>
+
+          <div
+            class="flex text-black"
+            [ngClass]="{ forwardColor: monthlyStockData.lastReportMonth <= 9 }"
           >
-          <span
-            class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{ monthlyStockData.lastReportMonth <= 12 ? forwardMonthlyStockData.netProfitAndLoss12Monthly : monthlyStockData.netProfitAndLoss12Monthly }}</span
+            <span
+              class="orange !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >پاییز</span
+            >
+            <div>
+              <div class="w-[300px]">
+                <div>
+                  <span
+                    class="orange"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >7</span
+                  >
+                  <span
+                    class="orange"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >{{
+                      monthlyStockData.lastReportMonth <= 7
+                        ? forwardMonthlyStockData.m7
+                        : monthlyStockData.m7
+                    }}</span
+                  >
+                </div>
+                <div>
+                  <span
+                    class="orange"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >8</span
+                  >
+                  <span
+                    class="orange"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >{{
+                      monthlyStockData.lastReportMonth <= 8
+                        ? forwardMonthlyStockData.m8
+                        : monthlyStockData.m8
+                    }}</span
+                  >
+                </div>
+                <div>
+                  <span
+                    class="orange"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >9</span
+                  >
+                  <span
+                    class="orange"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >{{
+                      monthlyStockData.lastReportMonth <= 9
+                        ? forwardMonthlyStockData.m9
+                        : monthlyStockData.m9
+                    }}</span
+                  >
+                </div>
+              </div>
+            </div>
+            <span
+              class="orange !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+            >
+              <ng-container *ngIf="monthlyStockData.lastReportMonth <= 9">
+                {{
+                  forwardMonthlyStockData.m7 +
+                    forwardMonthlyStockData.m8 +
+                    forwardMonthlyStockData.m9
+                }}
+              </ng-container>
+              <ng-container *ngIf="monthlyStockData.lastReportMonth > 9">
+                {{
+                  monthlyStockData.m7 +
+                    monthlyStockData.m8 +
+                    monthlyStockData.m9
+                }}
+              </ng-container>
+            </span>
+            <span
+              class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                (monthlyStockData.lastReportMonth <= 9
+                  ? forwardMonthlyStockData.operatingIncome9Monthly
+                  : monthlyStockData.operatingIncome9Monthly
+                ) | number : "1.0-2"
+              }}</span
+            >
+            <span
+              class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                (monthlyStockData.lastReportMonth <= 9
+                  ? forwardMonthlyStockData.productionCost9Monthly
+                  : monthlyStockData.productionCost9Monthly
+                ) | number : "1.0-2"
+              }}</span
+            >
+            <span
+              class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                (monthlyStockData.lastReportMonth <= 9
+                  ? forwardMonthlyStockData.netProfitAndLoss9Monthly
+                  : monthlyStockData.netProfitAndLoss9Monthly
+                ) | number : "1.0-2"
+              }}</span
+            >
+            <span
+              class="yellow !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                (monthlyStockData.lastReportMonth <= 9
+                  ? forwardMonthlyStockData.operatingIncomeThirdSeason
+                  : monthlyStockData.operatingIncomeThirdSeason
+                ) | number : "1.0-2"
+              }}</span
+            >
+            <span
+              class="yellow !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                (monthlyStockData.lastReportMonth <= 9
+                  ? ""
+                  : monthlyStockData.productionCostThirdSeason
+                ) | number : "1.0-2"
+              }}</span
+            >
+            <span
+              class="yellow !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                (monthlyStockData.lastReportMonth <= 9
+                  ? forwardMonthlyStockData.netProfitAndLossThirdSeason
+                  : monthlyStockData.netProfitAndLossThirdSeason
+                ) | number : "1.0-2"
+              }}</span
+            >
+            <span
+              class="orange !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >1234</span
+            >
+            <span
+              class="orange !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >1234</span
+            >
+            <span
+              class="greenyellow !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >1234</span
+            >
+            <span
+              class="greenyellow !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                (monthlyStockData.lastReportMonth <= 12
+                  ? forwardMonthlyStockData.netProfitMarginThirdSeason
+                  : monthlyStockData.netProfitMarginThirdSeason) * 100
+                  | number : "1.2-2"
+              }}</span
+            >
+          </div>
+
+          <div
+            class="flex text-black"
+            [ngClass]="{ forwardColor: monthlyStockData.lastReportMonth <= 12 }"
           >
-          <span
-            class="yellow !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{ monthlyStockData.lastReportMonth <= 12 ? forwardMonthlyStockData.operatingIncomeFourthSeason : monthlyStockData.operatingIncomeFourthSeason }}</span
-          >
-          <span
-            class="yellow !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{ monthlyStockData.lastReportMonth <= 12 ? forwardMonthlyStockData.productionCostFourthSeason : monthlyStockData.productionCostFourthSeason }}</span
-          >
-          <span
-            class="yellow !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >{{ monthlyStockData.lastReportMonth <= 12 ? forwardMonthlyStockData.netProfitAndLossFourthSeason : monthlyStockData.netProfitAndLossFourthSeason }}</span
-          >
-          <span
-            class="orange !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >1234</span
-          >
-          <span
-            class="orange !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >1234</span
-          >
-          <span
-            class="greenyellow !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]="''"
-            appTooltipHelperPosition="bottom"
-            >1234</span
-          >
-          <span
-            class="greenyellow !h-[-webkit-fill-available] text-center content-center"
-            [appTooltip]=" monthlyStockData.lastReportMonth <= 12  ? forwardMessage : ''"
-            appTooltipHelperPosition="bottom"
-            >1234</span
-          >
+            <span
+              class="blue !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >زمستان</span
+            >
+            <div>
+              <div class="w-[300px]">
+                <div>
+                  <span
+                    class="blue"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >10</span
+                  >
+                  <span
+                    class="blue"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >{{
+                      monthlyStockData.lastReportMonth <= 10
+                        ? forwardMonthlyStockData.m10
+                        : monthlyStockData.m10
+                    }}</span
+                  >
+                </div>
+                <div>
+                  <span
+                    class="blue"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >11</span
+                  >
+                  <span
+                    class="blue"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >{{
+                      monthlyStockData.lastReportMonth <= 11
+                        ? forwardMonthlyStockData.m11
+                        : monthlyStockData.m11
+                    }}</span
+                  >
+                </div>
+                <div>
+                  <span
+                    class="blue"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >12</span
+                  >
+                  <span
+                    class="blue"
+                    [appTooltip]="''"
+                    appTooltipHelperPosition="bottom"
+                    >{{
+                      monthlyStockData.lastReportMonth <= 12
+                        ? forwardMonthlyStockData.m12
+                        : monthlyStockData.m12
+                    }}</span
+                  >
+                </div>
+              </div>
+            </div>
+            <span
+              class="blue !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+            >
+              <ng-container *ngIf="monthlyStockData.lastReportMonth <= 12">
+                {{
+                  forwardMonthlyStockData.m10 +
+                    forwardMonthlyStockData.m11 +
+                    forwardMonthlyStockData.m12
+                }}
+              </ng-container>
+              <ng-container *ngIf="monthlyStockData.lastReportMonth > 12">
+                {{
+                  monthlyStockData.m10 +
+                    monthlyStockData.m11 +
+                    monthlyStockData.m12
+                }}
+              </ng-container>
+            </span>
+            <span
+              class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                (monthlyStockData.lastReportMonth <= 12
+                  ? forwardMonthlyStockData.operatingIncome12Monthly
+                  : monthlyStockData.operatingIncome12Monthly
+                ) | number : "1.0-2"
+              }}</span
+            >
+            <span
+              class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                (monthlyStockData.lastReportMonth <= 12
+                  ? forwardMonthlyStockData.productionCost12Monthly
+                  : monthlyStockData.productionCost12Monthly
+                ) | number : "1.0-2"
+              }}</span
+            >
+            <span
+              class="lightslategrey !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                (monthlyStockData.lastReportMonth <= 12
+                  ? forwardMonthlyStockData.netProfitAndLoss12Monthly
+                  : monthlyStockData.netProfitAndLoss12Monthly
+                ) | number : "1.0-2"
+              }}</span
+            >
+            <span
+              class="yellow !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                (monthlyStockData.lastReportMonth <= 12
+                  ? forwardMonthlyStockData.operatingIncomeFourthSeason
+                  : monthlyStockData.operatingIncomeFourthSeason
+                ) | number : "1.0-2"
+              }}</span
+            >
+            <span
+              class="yellow !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                (monthlyStockData.lastReportMonth <= 12
+                  ? ""
+                  : monthlyStockData.productionCostFourthSeason
+                ) | number : "1.0-2"
+              }}</span
+            >
+            <span
+              class="yellow !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >{{
+                (monthlyStockData.lastReportMonth <= 12
+                  ? forwardMonthlyStockData.netProfitAndLossFourthSeason
+                  : monthlyStockData.netProfitAndLossFourthSeason
+                ) | number : "1.0-2"
+              }}</span
+            >
+            <span
+              class="orange !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >1234</span
+            >
+            <span
+              class="orange !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >1234</span
+            >
+            <span
+              class="greenyellow !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="''"
+              appTooltipHelperPosition="bottom"
+              >1234</span
+            >
+            <span
+              class="greenyellow !h-[-webkit-fill-available] text-center content-center"
+              [appTooltip]="
+                monthlyStockData.lastReportMonth <= 12 ? forwardMessage : ''
+              "
+              appTooltipHelperPosition="bottom"
+              >{{
+                (monthlyStockData.lastReportMonth <= 12
+                  ? forwardMonthlyStockData.netProfitMarginFourthSeason
+                  : monthlyStockData.netProfitMarginFourthSeason) * 100
+                  | number : "1.2-2"
+              }}</span
+            >
+          </div>
         </div>
+        <span
+          class="gray !h-[-webkit-fill-available] text-center content-center"
+          [appTooltip]="''"
+          appTooltipHelperPosition="bottom"
+          >{{
+            (currentYear === monthlyStockData.year
+              ? forwardMonthlyStockData.yearlyNetProfitMargin
+              : monthlyStockData.yearlyNetProfitMargin) * 100 | number : "1.2-2"
+          }}</span
+        >
       </div>
-      <span
-        class="gray  !h-[-webkit-fill-available] text-center content-center"
-        [appTooltip]="''"
-        appTooltipHelperPosition="bottom"
-        >{{ monthlyStockData.year }}</span
-      >
     </div>
   </div>
 
-  <div></div>
-  <div></div>
+  
+  <div class="mt-7 mb-7 lastTable ">
+    
+  <div class="w-28 bg-blue-400 inline-block border-left">
+    <span class="w-full inline-block">قیمت سهم</span>
+    <span class="w-full inline-block">تعداد سهام</span>
+    <span class="w-full inline-block">ارزش بازار</span>
+  </div>
+  
+  <div  class="w-60 bg-blue-400 inline-block">
+    <span class="w-full inline-block" >{{ stockData.lastPrice}}</span>
+    <span class="w-full inline-block" >{{ stockData.numberOfShares}}</span>
+    <span class="w-full inline-block" > {{ stockData.numberOfShares * stockData.lastPrice }} </span>
+  </div>
+  
+  <div  class="w-32 bg-orange-400 inline-block border-left">
+    <span class="w-full inline-block" >سود کل تخمینی</span>
+    <span class="w-full inline-block" > P/E تخمینی</span>
+    <span class="w-full inline-block" > EPS  تخمینی  </span>
+  </div>
+  
+  <div  class="w-60 bg-orange-400 inline-block">  
+    <span class="w-full inline-block" >{{ ((forwardMonthlyStockData.netProfitAndLossFirstSeason + forwardMonthlyStockData.netProfitAndLossSecondSeason + forwardMonthlyStockData.netProfitAndLossThirdSeason + forwardMonthlyStockData.netProfitAndLossFourthSeason ) * 1000000   )  | number : "1.0-0" }} </span>
+    <span class="w-full inline-block" > {{ ( (stockData.numberOfShares * stockData.lastPrice) / (( forwardMonthlyStockData.netProfitAndLossFirstSeason + forwardMonthlyStockData.netProfitAndLossSecondSeason + forwardMonthlyStockData.netProfitAndLossThirdSeason + forwardMonthlyStockData.netProfitAndLossFourthSeason ) * 1000000  )  )  | number : "1.0-2" }} </span>
+    <span class="w-full inline-block" > {{ ( ((forwardMonthlyStockData.netProfitAndLossFirstSeason + forwardMonthlyStockData.netProfitAndLossSecondSeason + forwardMonthlyStockData.netProfitAndLossThirdSeason + forwardMonthlyStockData.netProfitAndLossFourthSeason ) * 1000000   )/ stockData.numberOfShares  )  | number : "1.0-0" }}  </span>
+  </div>
+  
+  <div  class="w-24 inline-block border-left">
+    <span class="w-full  red inline-block" >کران بالا</span>
+    <span class="w-full  blue inline-block" >کران میانی</span>
+    <span class="w-full  green inline-block" > کران پایین  </span>
+  </div>
+  
+  <div  class="w-24 text-center inline-block">
+    <span class="w-full red inline-block" >9</span>
+    <span class="w-full  blue inline-block" >6.5</span>
+    <span class="w-full green inline-block" >4</span>
+  </div>
+  
+  <div  class="w-24 text-center inline-block">
+    <span class="w-full  red inline-block" > {{ ((((forwardMonthlyStockData.netProfitAndLossFirstSeason + forwardMonthlyStockData.netProfitAndLossSecondSeason + forwardMonthlyStockData.netProfitAndLossThirdSeason + forwardMonthlyStockData.netProfitAndLossFourthSeason ) * 1000000) / stockData.numberOfShares ) * 9  )  | number : "1.0-0" }} </span>
+    <span class="w-full blue  inline-block" > {{ ((((forwardMonthlyStockData.netProfitAndLossFirstSeason + forwardMonthlyStockData.netProfitAndLossSecondSeason + forwardMonthlyStockData.netProfitAndLossThirdSeason + forwardMonthlyStockData.netProfitAndLossFourthSeason ) * 1000000) / stockData.numberOfShares ) * 6.5  )  | number : "1.0-0" }} </span>
+    <span class="w-full green inline-block" > {{ ((((forwardMonthlyStockData.netProfitAndLossFirstSeason + forwardMonthlyStockData.netProfitAndLossSecondSeason + forwardMonthlyStockData.netProfitAndLossThirdSeason + forwardMonthlyStockData.netProfitAndLossFourthSeason ) * 1000000) / stockData.numberOfShares ) * 4  )  | number : "1.0-0" }} </span>
+  </div>
+  </div>
 </div>
