@@ -15,7 +15,7 @@ export class HttpRequestService {
   url: any = '..';
   constructor(private http: HttpClient, private router: Router) {
     if (isDevMode()) {
-      this.url = 'http://127.0.0.1:8000/api/';
+      this.url = 'https://bourseradar.runflare.run/api';
     }
   }
 

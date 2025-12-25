@@ -15,7 +15,7 @@ export class StockApiService {
 
   public async getStock(id: number) {
    const data: any = await this.httpRequest.GET(
-        'get_stock/'+id 
+        '/get_stock/'+id 
       );
       return JsonParser.deserializeObject(data, StockDM);
 
@@ -24,7 +24,7 @@ export class StockApiService {
 
   public async getStockData(id: number) {
    const data: any = await this.httpRequest.GET(
-        'get_stock_data/'+id 
+        '/get_stock_data/'+id 
       );
       const stock = JsonParser.deserializeObject(data, StockDM) ;
       stock.yearlyStockData = orderBy(stock.yearlyStockData , ['year' ], ['asc' ]);

@@ -372,7 +372,7 @@
                     appTooltipHelperPosition="bottom"
                     >{{
                       monthlyStockData.lastReportMonth <= 2
-                        ? forwardMonthlyStockData.m2
+                        ? stockData.forecastMonthlyStockData?.m2
                         : monthlyStockData.m2
                     }}</span
                   >
@@ -390,7 +390,7 @@
                     appTooltipHelperPosition="bottom"
                     >{{
                       monthlyStockData.lastReportMonth <= 3
-                        ? forwardMonthlyStockData.m3
+                        ? stockData.forecastMonthlyStockData?.m3
                         : monthlyStockData.m3
                     }}</span
                   >
@@ -402,11 +402,11 @@
               [appTooltip]="''"
               appTooltipHelperPosition="bottom"
             >
-              <ng-container *ngIf="monthlyStockData.lastReportMonth <= 3">
+              <ng-container *ngIf="monthlyStockData.lastReportMonth <= 3 && stockData.forecastMonthlyStockData ">
                 {{
-                  forwardMonthlyStockData.m1 +
-                    forwardMonthlyStockData.m2 +
-                    forwardMonthlyStockData.m3
+                  stockData.forecastMonthlyStockData.m1 +
+                    stockData.forecastMonthlyStockData.m2 +
+                    stockData.forecastMonthlyStockData.m3
                 }}
               </ng-container>
               <ng-container *ngIf="monthlyStockData.lastReportMonth > 3">
@@ -423,7 +423,7 @@
               appTooltipHelperPosition="bottom"
               >{{
                 monthlyStockData.lastReportMonth <= 3
-                  ? forwardMonthlyStockData.operatingIncome3Monthly
+                  ? stockData.forecastMonthlyStockData?.operatingIncome3Monthly
                   : monthlyStockData.operatingIncome3Monthly
               }}</span
             >
@@ -433,7 +433,7 @@
               appTooltipHelperPosition="bottom"
               >{{
                 monthlyStockData.lastReportMonth <= 3
-                  ? forwardMonthlyStockData.productionCost3Monthly
+                  ? stockData.forecastMonthlyStockData?.productionCost3Monthly
                   : monthlyStockData.productionCost3Monthly
               }}</span
             >
@@ -443,7 +443,7 @@
               appTooltipHelperPosition="bottom"
               >{{
                 monthlyStockData.lastReportMonth <= 3
-                  ? forwardMonthlyStockData.netProfitAndLoss3Monthly
+                  ? stockData.forecastMonthlyStockData?.netProfitAndLoss3Monthly
                   : monthlyStockData.netProfitAndLoss3Monthly
               }}</span
             >
@@ -453,7 +453,7 @@
               appTooltipHelperPosition="bottom"
               >{{
                 monthlyStockData.lastReportMonth <= 3
-                  ? forwardMonthlyStockData.operatingIncomeFirstSeason
+                  ? stockData.forecastMonthlyStockData?.operatingIncomeFirstSeason
                   : monthlyStockData.operatingIncomeFirstSeason
               }}</span
             >
@@ -473,7 +473,7 @@
               appTooltipHelperPosition="bottom"
               >{{
                 monthlyStockData.lastReportMonth <= 3
-                  ? forwardMonthlyStockData.netProfitAndLossFirstSeason
+                  ? stockData.forecastMonthlyStockData?.netProfitAndLossFirstSeason
                   : monthlyStockData.netProfitAndLossFirstSeason
               }}</span
             >
@@ -500,8 +500,8 @@
               [appTooltip]="''"
               appTooltipHelperPosition="bottom"
               >{{
-                (monthlyStockData.lastReportMonth <= 12
-                  ? forwardMonthlyStockData.netProfitMarginFirstSeason
+                (monthlyStockData.lastReportMonth <= 12 && stockData.forecastMonthlyStockData
+                  ? stockData.forecastMonthlyStockData.netProfitMarginFirstSeason
                   : monthlyStockData.netProfitMarginFirstSeason) * 100
                   | number : "1.2-2"
               }}
@@ -533,7 +533,7 @@
                     appTooltipHelperPosition="bottom"
                     >{{
                       monthlyStockData.lastReportMonth <= 4
-                        ? forwardMonthlyStockData.m4
+                        ? stockData.forecastMonthlyStockData?.m4
                         : monthlyStockData.m4
                     }}</span
                   >
@@ -551,7 +551,7 @@
                     appTooltipHelperPosition="bottom"
                     >{{
                       monthlyStockData.lastReportMonth <= 5
-                        ? forwardMonthlyStockData.m5
+                        ? stockData.forecastMonthlyStockData?.m5
                         : monthlyStockData.m5
                     }}</span
                   >
@@ -569,7 +569,7 @@
                     appTooltipHelperPosition="bottom"
                     >{{
                       monthlyStockData.lastReportMonth <= 6
-                        ? forwardMonthlyStockData.m6
+                        ? stockData.forecastMonthlyStockData?.m6
                         : monthlyStockData.m6
                     }}</span
                   >
@@ -581,11 +581,11 @@
               [appTooltip]="''"
               appTooltipHelperPosition="bottom"
             >
-              <ng-container *ngIf="monthlyStockData.lastReportMonth <= 6">
+              <ng-container *ngIf="monthlyStockData.lastReportMonth <= 6 && stockData.forecastMonthlyStockData">
                 {{
-                  forwardMonthlyStockData.m4 +
-                    forwardMonthlyStockData.m5 +
-                    forwardMonthlyStockData.m6
+                  stockData.forecastMonthlyStockData.m4 +
+                    stockData.forecastMonthlyStockData.m5 +
+                    stockData.forecastMonthlyStockData.m6
                 }}
               </ng-container>
               <ng-container *ngIf="monthlyStockData.lastReportMonth > 6">
@@ -602,7 +602,7 @@
               appTooltipHelperPosition="bottom"
               >{{
                 monthlyStockData.lastReportMonth <= 6
-                  ? forwardMonthlyStockData.operatingIncome6Monthly
+                  ? stockData.forecastMonthlyStockData?.operatingIncome6Monthly
                   : monthlyStockData.operatingIncome6Monthly
               }}</span
             >
@@ -612,7 +612,7 @@
               appTooltipHelperPosition="bottom"
               >{{
                 monthlyStockData.lastReportMonth <= 6
-                  ? forwardMonthlyStockData.productionCost6Monthly
+                  ? stockData.forecastMonthlyStockData?.productionCost6Monthly
                   : monthlyStockData.productionCost6Monthly
               }}</span
             >
@@ -622,7 +622,7 @@
               appTooltipHelperPosition="bottom"
               >{{
                 monthlyStockData.lastReportMonth <= 6
-                  ? forwardMonthlyStockData.netProfitAndLoss6Monthly
+                  ? stockData.forecastMonthlyStockData?.netProfitAndLoss6Monthly
                   : monthlyStockData.netProfitAndLoss6Monthly
               }}</span
             >
@@ -632,7 +632,7 @@
               appTooltipHelperPosition="bottom"
               >{{
                 monthlyStockData.lastReportMonth <= 6
-                  ? forwardMonthlyStockData.operatingIncomeSecondSeason
+                  ? stockData.forecastMonthlyStockData?.operatingIncomeSecondSeason
                   : monthlyStockData.operatingIncomeSecondSeason
               }}</span
             >
@@ -652,7 +652,7 @@
               appTooltipHelperPosition="bottom"
               >{{
                 monthlyStockData.lastReportMonth <= 6
-                  ? forwardMonthlyStockData.netProfitAndLossSecondSeason
+                  ? stockData.forecastMonthlyStockData?.netProfitAndLossSecondSeason
                   : monthlyStockData.netProfitAndLossSecondSeason
               }}</span
             >
@@ -680,8 +680,8 @@
               appTooltipHelperPosition="bottom"
             >
               {{
-                (monthlyStockData.lastReportMonth <= 12
-                  ? forwardMonthlyStockData.netProfitMarginSecondSeason
+                (monthlyStockData.lastReportMonth <= 12 && stockData.forecastMonthlyStockData
+                  ? stockData.forecastMonthlyStockData.netProfitMarginSecondSeason
                   : monthlyStockData.netProfitMarginSecondSeason) * 100
                   | number : "1.2-2"
               }}
@@ -713,7 +713,7 @@
                     appTooltipHelperPosition="bottom"
                     >{{
                       monthlyStockData.lastReportMonth <= 7
-                        ? forwardMonthlyStockData.m7
+                        ? stockData.forecastMonthlyStockData?.m7
                         : monthlyStockData.m7
                     }}</span
                   >
@@ -731,7 +731,7 @@
                     appTooltipHelperPosition="bottom"
                     >{{
                       monthlyStockData.lastReportMonth <= 8
-                        ? forwardMonthlyStockData.m8
+                        ? stockData.forecastMonthlyStockData?.m8
                         : monthlyStockData.m8
                     }}</span
                   >
@@ -749,7 +749,7 @@
                     appTooltipHelperPosition="bottom"
                     >{{
                       monthlyStockData.lastReportMonth <= 9
-                        ? forwardMonthlyStockData.m9
+                        ? stockData.forecastMonthlyStockData?.m9
                         : monthlyStockData.m9
                     }}</span
                   >
@@ -761,11 +761,11 @@
               [appTooltip]="''"
               appTooltipHelperPosition="bottom"
             >
-              <ng-container *ngIf="monthlyStockData.lastReportMonth <= 9">
+              <ng-container *ngIf="monthlyStockData.lastReportMonth <= 9 && stockData.forecastMonthlyStockData">
                 {{
-                  forwardMonthlyStockData.m7 +
-                    forwardMonthlyStockData.m8 +
-                    forwardMonthlyStockData.m9
+                  stockData.forecastMonthlyStockData.m7 +
+                    stockData.forecastMonthlyStockData.m8 +
+                    stockData.forecastMonthlyStockData.m9
                 }}
               </ng-container>
               <ng-container *ngIf="monthlyStockData.lastReportMonth > 9">
@@ -782,7 +782,7 @@
               appTooltipHelperPosition="bottom"
               >{{
                 (monthlyStockData.lastReportMonth <= 9
-                  ? forwardMonthlyStockData.operatingIncome9Monthly
+                  ? stockData.forecastMonthlyStockData?.operatingIncome9Monthly
                   : monthlyStockData.operatingIncome9Monthly
                 ) | number : "1.0-2"
               }}</span
@@ -793,7 +793,7 @@
               appTooltipHelperPosition="bottom"
               >{{
                 (monthlyStockData.lastReportMonth <= 9
-                  ? forwardMonthlyStockData.productionCost9Monthly
+                  ? stockData.forecastMonthlyStockData?.productionCost9Monthly
                   : monthlyStockData.productionCost9Monthly
                 ) | number : "1.0-2"
               }}</span
@@ -804,7 +804,7 @@
               appTooltipHelperPosition="bottom"
               >{{
                 (monthlyStockData.lastReportMonth <= 9
-                  ? forwardMonthlyStockData.netProfitAndLoss9Monthly
+                  ? stockData.forecastMonthlyStockData?.netProfitAndLoss9Monthly
                   : monthlyStockData.netProfitAndLoss9Monthly
                 ) | number : "1.0-2"
               }}</span
@@ -815,7 +815,7 @@
               appTooltipHelperPosition="bottom"
               >{{
                 (monthlyStockData.lastReportMonth <= 9
-                  ? forwardMonthlyStockData.operatingIncomeThirdSeason
+                  ? stockData.forecastMonthlyStockData?.operatingIncomeThirdSeason
                   : monthlyStockData.operatingIncomeThirdSeason
                 ) | number : "1.0-2"
               }}</span
@@ -837,7 +837,7 @@
               appTooltipHelperPosition="bottom"
               >{{
                 (monthlyStockData.lastReportMonth <= 9
-                  ? forwardMonthlyStockData.netProfitAndLossThirdSeason
+                  ? stockData.forecastMonthlyStockData?.netProfitAndLossThirdSeason
                   : monthlyStockData.netProfitAndLossThirdSeason
                 ) | number : "1.0-2"
               }}</span
@@ -865,8 +865,8 @@
               [appTooltip]="''"
               appTooltipHelperPosition="bottom"
               >{{
-                (monthlyStockData.lastReportMonth <= 12
-                  ? forwardMonthlyStockData.netProfitMarginThirdSeason
+                (monthlyStockData.lastReportMonth <= 12 && stockData.forecastMonthlyStockData
+                  ? stockData.forecastMonthlyStockData.netProfitMarginThirdSeason
                   : monthlyStockData.netProfitMarginThirdSeason) * 100
                   | number : "1.2-2"
               }}</span
@@ -898,7 +898,7 @@
                     appTooltipHelperPosition="bottom"
                     >{{
                       monthlyStockData.lastReportMonth <= 10
-                        ? forwardMonthlyStockData.m10
+                        ? stockData.forecastMonthlyStockData?.m10
                         : monthlyStockData.m10
                     }}</span
                   >
@@ -916,7 +916,7 @@
                     appTooltipHelperPosition="bottom"
                     >{{
                       monthlyStockData.lastReportMonth <= 11
-                        ? forwardMonthlyStockData.m11
+                        ? stockData.forecastMonthlyStockData?.m11
                         : monthlyStockData.m11
                     }}</span
                   >
@@ -934,7 +934,7 @@
                     appTooltipHelperPosition="bottom"
                     >{{
                       monthlyStockData.lastReportMonth <= 12
-                        ? forwardMonthlyStockData.m12
+                        ? stockData.forecastMonthlyStockData?.m12
                         : monthlyStockData.m12
                     }}</span
                   >
@@ -946,11 +946,11 @@
               [appTooltip]="''"
               appTooltipHelperPosition="bottom"
             >
-              <ng-container *ngIf="monthlyStockData.lastReportMonth <= 12">
+              <ng-container *ngIf="monthlyStockData.lastReportMonth <= 12 && stockData.forecastMonthlyStockData">
                 {{
-                  forwardMonthlyStockData.m10 +
-                    forwardMonthlyStockData.m11 +
-                    forwardMonthlyStockData.m12
+                  stockData.forecastMonthlyStockData.m10 +
+                    stockData.forecastMonthlyStockData.m11 +
+                    stockData.forecastMonthlyStockData.m12
                 }}
               </ng-container>
               <ng-container *ngIf="monthlyStockData.lastReportMonth > 12">
@@ -967,7 +967,7 @@
               appTooltipHelperPosition="bottom"
               >{{
                 (monthlyStockData.lastReportMonth <= 12
-                  ? forwardMonthlyStockData.operatingIncome12Monthly
+                  ? stockData.forecastMonthlyStockData?.operatingIncome12Monthly
                   : monthlyStockData.operatingIncome12Monthly
                 ) | number : "1.0-2"
               }}</span
@@ -978,7 +978,7 @@
               appTooltipHelperPosition="bottom"
               >{{
                 (monthlyStockData.lastReportMonth <= 12
-                  ? forwardMonthlyStockData.productionCost12Monthly
+                  ? stockData.forecastMonthlyStockData?.productionCost12Monthly
                   : monthlyStockData.productionCost12Monthly
                 ) | number : "1.0-2"
               }}</span
@@ -989,7 +989,7 @@
               appTooltipHelperPosition="bottom"
               >{{
                 (monthlyStockData.lastReportMonth <= 12
-                  ? forwardMonthlyStockData.netProfitAndLoss12Monthly
+                  ? stockData.forecastMonthlyStockData?.netProfitAndLoss12Monthly
                   : monthlyStockData.netProfitAndLoss12Monthly
                 ) | number : "1.0-2"
               }}</span
@@ -1000,7 +1000,7 @@
               appTooltipHelperPosition="bottom"
               >{{
                 (monthlyStockData.lastReportMonth <= 12
-                  ? forwardMonthlyStockData.operatingIncomeFourthSeason
+                  ? stockData.forecastMonthlyStockData?.operatingIncomeFourthSeason
                   : monthlyStockData.operatingIncomeFourthSeason
                 ) | number : "1.0-2"
               }}</span
@@ -1022,7 +1022,7 @@
               appTooltipHelperPosition="bottom"
               >{{
                 (monthlyStockData.lastReportMonth <= 12
-                  ? forwardMonthlyStockData.netProfitAndLossFourthSeason
+                  ? stockData.forecastMonthlyStockData?.netProfitAndLossFourthSeason
                   : monthlyStockData.netProfitAndLossFourthSeason
                 ) | number : "1.0-2"
               }}</span
@@ -1052,8 +1052,8 @@
               "
               appTooltipHelperPosition="bottom"
               >{{
-                (monthlyStockData.lastReportMonth <= 12
-                  ? forwardMonthlyStockData.netProfitMarginFourthSeason
+                (monthlyStockData.lastReportMonth <= 12 && stockData.forecastMonthlyStockData
+                  ? stockData.forecastMonthlyStockData.netProfitMarginFourthSeason
                   : monthlyStockData.netProfitMarginFourthSeason) * 100
                   | number : "1.2-2"
               }}</span
@@ -1065,8 +1065,8 @@
           [appTooltip]="''"
           appTooltipHelperPosition="bottom"
           >{{
-            (currentYear === monthlyStockData.year
-              ? forwardMonthlyStockData.yearlyNetProfitMargin
+            (currentYear === monthlyStockData.year && stockData.forecastMonthlyStockData
+              ? stockData.forecastMonthlyStockData.yearlyNetProfitMargin
               : monthlyStockData.yearlyNetProfitMargin) * 100 | number : "1.2-2"
           }}</span
         >
@@ -1096,9 +1096,9 @@
   </div>
   
   <div  class="w-60 bg-orange-400 inline-block">  
-    <span class="w-full inline-block" >{{ ((forwardMonthlyStockData.netProfitAndLossFirstSeason + forwardMonthlyStockData.netProfitAndLossSecondSeason + forwardMonthlyStockData.netProfitAndLossThirdSeason + forwardMonthlyStockData.netProfitAndLossFourthSeason ) * 1000000   )  | number : "1.0-0" }} </span>
-    <span class="w-full inline-block" > {{ ( (stockData.numberOfShares * stockData.lastPrice) / (( forwardMonthlyStockData.netProfitAndLossFirstSeason + forwardMonthlyStockData.netProfitAndLossSecondSeason + forwardMonthlyStockData.netProfitAndLossThirdSeason + forwardMonthlyStockData.netProfitAndLossFourthSeason ) * 1000000  )  )  | number : "1.0-2" }} </span>
-    <span class="w-full inline-block" > {{ ( ((forwardMonthlyStockData.netProfitAndLossFirstSeason + forwardMonthlyStockData.netProfitAndLossSecondSeason + forwardMonthlyStockData.netProfitAndLossThirdSeason + forwardMonthlyStockData.netProfitAndLossFourthSeason ) * 1000000   )/ stockData.numberOfShares  )  | number : "1.0-0" }}  </span>
+    <span class="w-full inline-block" >{{ (stockData.lastForecastPrice?.profitForward    )  | number : "1.0-0" }} </span>
+    <span class="w-full inline-block" > {{ stockData.lastForecastPrice?.PEForward  | number : "1.0-2" }} </span>
+    <span class="w-full inline-block" > {{ stockData.lastForecastPrice?.epsForward | number : "1.0-0" }}  </span>
   </div>
   
   <div  class="w-24 inline-block border-left">
@@ -1113,10 +1113,10 @@
     <span class="w-full green inline-block" >4</span>
   </div>
   
-  <div  class="w-24 text-center inline-block">
-    <span class="w-full  red inline-block" > {{ ((((forwardMonthlyStockData.netProfitAndLossFirstSeason + forwardMonthlyStockData.netProfitAndLossSecondSeason + forwardMonthlyStockData.netProfitAndLossThirdSeason + forwardMonthlyStockData.netProfitAndLossFourthSeason ) * 1000000) / stockData.numberOfShares ) * 9  )  | number : "1.0-0" }} </span>
-    <span class="w-full blue  inline-block" > {{ ((((forwardMonthlyStockData.netProfitAndLossFirstSeason + forwardMonthlyStockData.netProfitAndLossSecondSeason + forwardMonthlyStockData.netProfitAndLossThirdSeason + forwardMonthlyStockData.netProfitAndLossFourthSeason ) * 1000000) / stockData.numberOfShares ) * 6.5  )  | number : "1.0-0" }} </span>
-    <span class="w-full green inline-block" > {{ ((((forwardMonthlyStockData.netProfitAndLossFirstSeason + forwardMonthlyStockData.netProfitAndLossSecondSeason + forwardMonthlyStockData.netProfitAndLossThirdSeason + forwardMonthlyStockData.netProfitAndLossFourthSeason ) * 1000000) / stockData.numberOfShares ) * 4  )  | number : "1.0-0" }} </span>
+  <div  class="w-24 text-center inline-block" *ngIf="stockData.lastForecastPrice">
+    <span class="w-full  red inline-block" > {{ (stockData.lastForecastPrice.epsForward * 9  )  | number : "1.0-0" }} </span>
+    <span class="w-full blue  inline-block" > {{ (stockData.lastForecastPrice.epsForward * 6.5  )  | number : "1.0-0" }} </span>
+    <span class="w-full green inline-block" > {{ (stockData.lastForecastPrice.epsForward * 4  )  | number : "1.0-0" }} </span>
   </div>
   </div>
 </div>

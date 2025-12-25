@@ -14,7 +14,7 @@ export class ReportApiService {
       CustomReportID: id,
     };
     const data: any = await this.httpRequest.POST(
-      '/api/CustomReport/GetCustomReport',
+      '/CustomReport/GetCustomReport',
       params
     );
     return data;
@@ -24,7 +24,7 @@ export class ReportApiService {
       CustomReportID: id,
     };
     const data: any = await this.httpRequest.POST(
-      '/api/CustomReport/CustomReportParametersList',
+      '/CustomReport/CustomReportParametersList',
       params
     );
     return JsonParser.deserializeArray(data, CustomReportParameterDM);
@@ -43,7 +43,7 @@ export class ReportApiService {
       }),
     };
     const data: any = await this.httpRequest.POST(
-      '/api/CustomReport/GetCustomReportParameter',
+      '/CustomReport/GetCustomReportParameter',
       params
     );
     return data;

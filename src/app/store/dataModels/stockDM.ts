@@ -3,6 +3,7 @@ import Datamodel from './base/datamodel';
 import CategoryDM from './categoryDM';
 import MonthlyStockDataDM from './monthlyStockData';
 import YearlyStockDataDM from './yearlyStockData';
+import ForecastPriceDM from './forecastPriceDM';
 
 @JsonObject('StockDM')
 export default class StockDM extends Datamodel {
@@ -22,4 +23,12 @@ export default class StockDM extends Datamodel {
   monthlyStockData: MonthlyStockDataDM[] | undefined = undefined;
   @JsonProperty('yearly_stock_data', [YearlyStockDataDM], true)
   yearlyStockData: YearlyStockDataDM[] | undefined = undefined;
+  
+  @JsonProperty('forecast_monthly_stock_data',  MonthlyStockDataDM , true)
+  forecastMonthlyStockData: MonthlyStockDataDM | undefined = undefined;
+  
+  @JsonProperty('last_forecast_price',  ForecastPriceDM , true)
+  lastForecastPrice: ForecastPriceDM | undefined = undefined;
+
+
 }
