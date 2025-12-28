@@ -12,9 +12,6 @@ export class LoginApiService {
       UserID: userName,
       Passwd: password,
     };
-    return await this.httpRequest.POST(
-      'Security/Auth/OfficeLogin',
-      params
-    );
+    return await this.httpRequest.POST('/Security/Auth/OfficeLogin', params);
   }
 }

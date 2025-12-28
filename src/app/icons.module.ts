@@ -6,6 +6,8 @@ import { CloseIconComponent } from './components/svg-icons/close-icon/close-icon
 import { DatasetIconComponent } from './components/svg-icons/dataset-icon/dataset-icon.component';
 import { DeleteForeverIconComponent } from './components/svg-icons/delete-forever-icon/delete-forever-icon.component';
 import { EditSquareIconComponent } from './components/svg-icons/edit-square-icon/edit-square-icon.component';
+import { KeyboardArrowDownIconComponent } from './components/svg-icons/keyboard-arrow-down-icon/keyboard-arrow-down-icon.component';
+import { KeyboardArrowUpIconComponent } from './components/svg-icons/keyboard-arrow-up-icon/keyboard-arrow-up-icon.component';
 import { MenuIconComponent } from './components/svg-icons/menu-icon/menu-icon.component';
 import { MenuOpenIconComponent } from './components/svg-icons/menu-open-icon/menu-open-icon.component';
 import { MonetizationOnIconComponent } from './components/svg-icons/monetization-on-icon/monetization-on-icon.component';
@@ -36,4 +38,6 @@ export const declarationIcons = [
   TrainIconComponent,
   WarningIconComponent,
   ReportIconComponent,
+  KeyboardArrowDownIconComponent,
+  KeyboardArrowUpIconComponent,
 ];
