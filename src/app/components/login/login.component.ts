@@ -52,7 +52,7 @@ export class LoginComponent {
         localStorage.setItem('userFullName', data.result.UserFullName);
         localStorage.setItem('userID', data.result.UserID);
         localStorage.setItem('isLogin', 'true');
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard/stock']);
       }
       this.loading = false;
     } catch (error) {

@@ -19,115 +19,177 @@ export default class MonthlyStockDataDM extends Datamodel {
   @JsonProperty('m11', Number, true) m11 = 0;
   @JsonProperty('m12', Number, true) m12 = 0;
 
-  @JsonProperty('operating_income_3_monthly', Number, true) operatingIncome3Monthly = 0;
-  @JsonProperty('operating_income_6_monthly', Number, true) operatingIncome6Monthly = 0;
-  @JsonProperty('operating_income_9_monthly', Number, true) operatingIncome9Monthly = 0;
-  @JsonProperty('operating_income_12_monthly', Number, true) operatingIncome12Monthly = 0;
+  @JsonProperty('operating_income_3_monthly', Number, true)
+  operatingIncome3Monthly = 0;
+  @JsonProperty('operating_income_6_monthly', Number, true)
+  operatingIncome6Monthly = 0;
+  @JsonProperty('operating_income_9_monthly', Number, true)
+  operatingIncome9Monthly = 0;
+  @JsonProperty('operating_income_12_monthly', Number, true)
+  operatingIncome12Monthly = 0;
 
-  @JsonProperty('net_profit_and_loss_3_monthly', Number, true) netProfitAndLoss3Monthly = 0;
-  @JsonProperty('net_profit_and_loss_6_monthly', Number, true) netProfitAndLoss6Monthly = 0;
-  @JsonProperty('net_profit_and_loss_9_monthly', Number, true) netProfitAndLoss9Monthly = 0;
-  @JsonProperty('net_profit_and_loss_12_monthly', Number, true) netProfitAndLoss12Monthly = 0;
+  @JsonProperty('net_profit_and_loss_3_monthly', Number, true)
+  netProfitAndLoss3Monthly = 0;
+  @JsonProperty('net_profit_and_loss_6_monthly', Number, true)
+  netProfitAndLoss6Monthly = 0;
+  @JsonProperty('net_profit_and_loss_9_monthly', Number, true)
+  netProfitAndLoss9Monthly = 0;
+  @JsonProperty('net_profit_and_loss_12_monthly', Number, true)
+  netProfitAndLoss12Monthly = 0;
 
-  @JsonProperty('production_cost_3_monthly', Number, true) productionCost3Monthly = 0;
-  @JsonProperty('production_cost_6_monthly', Number, true) productionCost6Monthly = 0;
-  @JsonProperty('production_cost_9_monthly', Number, true) productionCost9Monthly = 0;
-  @JsonProperty('production_cost_12_monthly', Number, true) productionCost12Monthly = 0;
+  @JsonProperty('production_cost_3_monthly', Number, true)
+  productionCost3Monthly = 0;
+  @JsonProperty('production_cost_6_monthly', Number, true)
+  productionCost6Monthly = 0;
+  @JsonProperty('production_cost_9_monthly', Number, true)
+  productionCost9Monthly = 0;
+  @JsonProperty('production_cost_12_monthly', Number, true)
+  productionCost12Monthly = 0;
 
-  
+  springSeasonalSales = 0;
+  summerSeasonalSales = 0;
+  autumnSeasonalSales = 0;
+  winterSeasonalSales = 0;
+  springSales = 0;
+  summerSales = 0;
+  autumnSales = 0;
+  winterSales = 0;
+  springProductionCost = 0;
+  summerProductionCost = 0;
+  autumnProductionCost = 0;
+  winterProductionCost = 0;
+  springNetProfit = 0;
+  summerNetProfit = 0;
+  autumnNetProfit = 0;
+  winterNetProfit = 0;
+  springSeasonSale = 0;
+  summerSeasonSale = 0;
+  autumnSeasonSale = 0;
+  winterSeasonSale = 0;
+  springSeasonalProductionCost = 0;
+  summerSeasonalProductionCost = 0;
+  autumnSeasonalProductionCost = 0;
+  winterSeasonalProductionCost = 0;
+  springNetProfitAndLossForSeason = 0;
+  summerNetProfitAndLossForSeason = 0;
+  autumnNetProfitAndLossForSeason = 0;
+  winterNetProfitAndLossForSeason = 0;
+  springSeasonalProduction = 0;
+  summerSeasonalProduction = 0;
+  autumnSeasonalProduction = 0;
+  winterSeasonalProduction = 0;
+  springCostOfProductionSales = 0;
+  summerCostOfProductionSales = 0;
+  autumnCostOfProductionSales = 0;
+  winterCostOfProductionSales = 0;
+  springNetProfitMargin = 0;
+  summerNetProfitMargin = 0;
+  autumnNetProfitMargin = 0;
+  winterNetProfitMargin = 0;
+  netProfitMargin = 0;
+  get springName() {
+    return 'بهار';
+  }
+  get summerName() {
+    return 'تابستان';
+  }
+  get autumnName() {
+    return 'پاییز';
+  }
+  get winterName() {
+    return 'زمستان';
+  }
 
-  get lastReportMonth(){
+  get lastReportMonth() {
     // todo if year is current year and this if's
     if (this.m1 === 0) {
-      return 1 ;
-    }else if (this.m2 === 0) {
-      return 2 ;
-    }else if (this.m3 === 0) {
-      return 3 ;
-    }else if (this.m4 === 0) {
-      return 4 ;
-    }else if (this.m5 === 0) {
-      return 5 ;
-    }else if (this.m6 === 0) {
-      return 6 ;
-    }else if (this.m7 === 0) {
-      return 7 ;
-    }else if (this.m8 === 0) {
-      return 8 ;
-    }else if (this.m9 === 0) {
-      return 9 ;
-    }else if (this.m10 === 0) {
-      return 10 ;
-    }else if (this.m11 === 0) {
-      return 11 ;
-    }else if (this.m12 === 0) {
-      return 12 ;
-    } else{
-      return 13 ;
+      return 1;
+    } else if (this.m2 === 0) {
+      return 2;
+    } else if (this.m3 === 0) {
+      return 3;
+    } else if (this.m4 === 0) {
+      return 4;
+    } else if (this.m5 === 0) {
+      return 5;
+    } else if (this.m6 === 0) {
+      return 6;
+    } else if (this.m7 === 0) {
+      return 7;
+    } else if (this.m8 === 0) {
+      return 8;
+    } else if (this.m9 === 0) {
+      return 9;
+    } else if (this.m10 === 0) {
+      return 10;
+    } else if (this.m11 === 0) {
+      return 11;
+    } else if (this.m12 === 0) {
+      return 12;
+    } else {
+      return 13;
     }
   }
 
-
-  get operatingIncomeFirstSeason(){
-    return this.operatingIncome3Monthly ;
+  get operatingIncomeFirstSeason() {
+    return this.operatingIncome3Monthly;
   }
-  get netProfitAndLossFirstSeason(){
-    return this.netProfitAndLoss3Monthly ;
+  get netProfitAndLossFirstSeason() {
+    return this.netProfitAndLoss3Monthly;
   }
-  get productionCostFirstSeason(){
-    return this.productionCost3Monthly ;
+  get productionCostFirstSeason() {
+    return this.productionCost3Monthly;
   }
-  get netProfitMarginFirstSeason(){
-    return this.netProfitAndLossFirstSeason / this.operatingIncomeFirstSeason ; 
-  }
-
-
-
-  get operatingIncomeSecondSeason(){
-    return this.operatingIncome6Monthly  - this.operatingIncome3Monthly ;
-  }
-  get netProfitAndLossSecondSeason(){
-    return   this.netProfitAndLoss6Monthly  - this.netProfitAndLoss3Monthly ;
-  }
-  get productionCostSecondSeason(){
-    return this.productionCost6Monthly - this.productionCost3Monthly ;
-  }
-  get netProfitMarginSecondSeason(){
-    return this.netProfitAndLossSecondSeason / this.operatingIncomeSecondSeason ; 
+  get netProfitMarginFirstSeason() {
+    return this.netProfitAndLossFirstSeason / this.operatingIncomeFirstSeason;
   }
 
-
-  
-  get operatingIncomeThirdSeason(){
-    return this.operatingIncome9Monthly - this.operatingIncome6Monthly ;
+  get operatingIncomeSecondSeason() {
+    return this.operatingIncome6Monthly - this.operatingIncome3Monthly;
   }
-  get netProfitAndLossThirdSeason(){
-    return  this.netProfitAndLoss9Monthly  - this.netProfitAndLoss6Monthly ; 
+  get netProfitAndLossSecondSeason() {
+    return this.netProfitAndLoss6Monthly - this.netProfitAndLoss3Monthly;
   }
-  get productionCostThirdSeason(){
-    return this.productionCost9Monthly - this.productionCost6Monthly ;
+  get productionCostSecondSeason() {
+    return this.productionCost6Monthly - this.productionCost3Monthly;
   }
-  get netProfitMarginThirdSeason(){
-    return this.netProfitAndLossThirdSeason / this.operatingIncomeThirdSeason ; 
+  get netProfitMarginSecondSeason() {
+    return this.netProfitAndLossSecondSeason / this.operatingIncomeSecondSeason;
   }
 
+  get operatingIncomeThirdSeason() {
+    return this.operatingIncome9Monthly - this.operatingIncome6Monthly;
+  }
+  get netProfitAndLossThirdSeason() {
+    return this.netProfitAndLoss9Monthly - this.netProfitAndLoss6Monthly;
+  }
+  get productionCostThirdSeason() {
+    return this.productionCost9Monthly - this.productionCost6Monthly;
+  }
+  get netProfitMarginThirdSeason() {
+    return this.netProfitAndLossThirdSeason / this.operatingIncomeThirdSeason;
+  }
 
-  get operatingIncomeFourthSeason(){
-    return this.operatingIncome12Monthly - this.operatingIncome9Monthly ;
+  get operatingIncomeFourthSeason() {
+    return this.operatingIncome12Monthly - this.operatingIncome9Monthly;
   }
-  get netProfitAndLossFourthSeason(){
-    return this.netProfitAndLoss12Monthly  - this.netProfitAndLoss9Monthly ; 
+  get netProfitAndLossFourthSeason() {
+    return this.netProfitAndLoss12Monthly - this.netProfitAndLoss9Monthly;
   }
-  get productionCostFourthSeason(){
-    return this.productionCost12Monthly - this.productionCost9Monthly ; 
+  get productionCostFourthSeason() {
+    return this.productionCost12Monthly - this.productionCost9Monthly;
   }
-  get netProfitMarginFourthSeason(){
-    return this.netProfitAndLossFourthSeason / this.operatingIncomeFourthSeason ; 
+  get netProfitMarginFourthSeason() {
+    return this.netProfitAndLossFourthSeason / this.operatingIncomeFourthSeason;
   }
- 
 
-  get yearlyNetProfitMargin(){
-    return (this.netProfitMarginFourthSeason +  this.netProfitMarginThirdSeason + this.netProfitMarginSecondSeason + this.netProfitMarginFirstSeason ) / 4 ;
+  get yearlyNetProfitMargin() {
+    return (
+      (this.netProfitMarginFourthSeason +
+        this.netProfitMarginThirdSeason +
+        this.netProfitMarginSecondSeason +
+        this.netProfitMarginFirstSeason) /
+      4
+    );
   }
-  
 }

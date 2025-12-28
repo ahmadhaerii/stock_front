@@ -27,6 +27,7 @@ import { NgxIndexedDBModule } from 'ngx-indexed-db';
 import { DbConfig } from './store/dbConfig';
 import { StockPageComponent } from './components/stock-page/stock-page.component';
 import { TooltipDirective } from './directive/tooltip.directive';
+import { PersianDigitsPipe } from './utils/pipes/persian-digits.pipe';
 export let AppInjector: Injector;
 
 @NgModule({
@@ -35,10 +36,6 @@ export let AppInjector: Injector;
 
     DashboardComponent,
     StockPageComponent,
-
-
-
-
 
     DashboardContentComponent,
     DashboardHeaderComponent,
@@ -52,6 +49,7 @@ export let AppInjector: Injector;
     SlideMenuComponent,
     FormControlPipe,
     TooltipDirective,
+    PersianDigitsPipe,
     declarationIcons,
     declarationCores,
   ],
@@ -66,7 +64,7 @@ export let AppInjector: Injector;
     ReactiveFormsModule,
     NgxIndexedDBModule.forRoot(DbConfig),
   ],
-  exports: [FormControlPipe],
+  exports: [FormControlPipe, PersianDigitsPipe],
   providers: [
     {
       provide: 'NiraModalService',
