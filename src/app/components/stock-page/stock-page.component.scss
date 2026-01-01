@@ -389,12 +389,21 @@
   }
 }
 .blue {
-  background-color: #aad4fd;
+  background-color: #aad4fd !important;
 }
 .orange {
-  background-color: rgb(254 219 155);
+  background-color: rgb(254 219 155) !important;
 }
 
 .gray {
-  background-color: rgb(233 233 233);
+  background-color: rgb(233 233 233) !important;
+}
+.greenLite {
+  background-color: rgb(209, 252, 144) !important;
+}
+.yellow {
+  background-color: rgb(252, 252, 128) !important;
+}
+.green {
+  background-color: rgb(118, 187, 118) !important;
 }

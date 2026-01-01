@@ -87,6 +87,7 @@ export default class MonthlyStockDataDM extends Datamodel {
   autumnNetProfitMargin = 0;
   winterNetProfitMargin = 0;
   netProfitMargin = 0;
+  isForward: boolean[] = [];
   get springName() {
     return 'بهار';
   }

@@ -3,11 +3,14 @@ import moment from 'jalali-moment';
 import { cloneDeep } from 'lodash';
 import { COLUMNS_TYPES } from 'nira-falcon';
 import { ColumnsSchema } from 'nira-falcon/lib/core-table/core-table/core-table.type';
+import { NiraModalService } from 'nira-modal';
 import { BehaviorSubject } from 'rxjs';
 import { ApplicationDS } from 'src/app/store/applicationDS.service';
 import { StockCS } from 'src/app/store/componentStore/stockCS';
 import MonthlyStockDataDM from 'src/app/store/dataModels/monthlyStockData';
 import StockDM from 'src/app/store/dataModels/stockDM';
+import { ChartModalComponent } from '../modal/chart-modal/chart-modal.component';
+import YearlyStockDataDM from 'src/app/store/dataModels/yearlyStockData';
 type Schema = {
   label: string;
   type: string;
@@ -17,6 +20,7 @@ type Schema = {
   column?: number;
   color?: string;
   keys?: string[];
+  keysColor?: string[];
   data?: {
     key: string;
   };
@@ -163,7 +167,7 @@ export class StockPageComponent {
       type: COLUMNS_TYPES.TEXT,
       key: 'operatingIncome',
       keys: ['springName', 'summerName', 'autumnName', 'winterName'],
-      color: 'blue',
+      keysColor: ['green', 'yellow', 'orange', 'blue'],
       column: 4,
     },
     {
@@ -176,14 +180,14 @@ export class StockPageComponent {
         'autumnSeasonalSales',
         'winterSeasonalSales',
       ],
-      color: 'blue',
+      keysColor: ['green', 'yellow', 'orange', 'blue'],
       column: 4,
     },
     {
       label: 'فروش',
       type: COLUMNS_TYPES.NUMBER,
       key: '',
-      color: 'blue',
+      color: 'gray',
       keys: ['springSales', 'summerSales', 'autumnSales', 'winterSales'],
       column: 4,
     },
@@ -210,7 +214,7 @@ export class StockPageComponent {
         'autumnNetProfit',
         'winterNetProfit',
       ],
-      color: 'orange',
+      color: 'gray',
       column: 4,
     },
     {
@@ -223,7 +227,7 @@ export class StockPageComponent {
         'autumnSeasonSale',
         'winterSeasonSale',
       ],
-      color: 'orange',
+      color: 'yellow',
       column: 4,
     },
     {
@@ -236,7 +240,7 @@ export class StockPageComponent {
         'autumnSeasonalProductionCost',
         'winterSeasonalProductionCost',
       ],
-      color: 'orange',
+      color: 'yellow',
       column: 4,
     },
     {
@@ -249,7 +253,7 @@ export class StockPageComponent {
         'autumnNetProfitAndLossForSeason',
         'winterNetProfitAndLossForSeason',
       ],
-      color: 'blue',
+      color: 'yellow',
       column: 4,
     },
     {
@@ -262,7 +266,7 @@ export class StockPageComponent {
         'autumnSeasonalProduction',
         'winterSeasonalProduction',
       ],
-      color: 'blue',
+      color: 'orange',
       column: 4,
     },
     {
@@ -275,7 +279,7 @@ export class StockPageComponent {
         'autumnSeasonalProduction',
         'winterSeasonalProduction',
       ],
-      color: 'gray',
+      color: 'orange',
       column: 4,
     },
     {
@@ -288,14 +292,14 @@ export class StockPageComponent {
         'autumnCostOfProductionSales',
         'winterCostOfProductionSales',
       ],
-      color: 'orange',
+      color: 'greenLite',
       column: 4,
     },
     {
       label: 'حاشیه سود خالص',
       type: COLUMNS_TYPES.TEXT,
       key: '',
-      color: 'orange',
+      color: 'greenLite',
       keys: [
         'springNetProfitMargin',
         'summerNetProfitMargin',
@@ -309,13 +313,16 @@ export class StockPageComponent {
       label: 'م ح س',
       type: COLUMNS_TYPES.TEXT,
       key: 'netProfitMargin',
-      color: 'orange',
+      color: 'gray',
       pipe: '1.2-2',
       column: 1,
     },
   ];
   forwardMessage = 'موارد آبی رنگ ، به صورت forward  است ';
-  constructor(private stockCS: StockCS, private applicationDS: ApplicationDS) {}
+  constructor(
+    private stockCS: StockCS,
+    private niraModalService: NiraModalService
+  ) {}
 
   async ngOnInit() {
     this.loading = true;
@@ -330,7 +337,186 @@ export class StockPageComponent {
 
     this.loading = false;
   }
+  showAnnualSalesChartChart() {
+    let yearlyStocks: string[] = [];
+    let yearlyOperatingIncomes: number[] = [];
+    this.stockData.yearlyStockData.forEach((yearlyStock: YearlyStockDataDM) => {
+      yearlyStocks.push(yearlyStock.year);
+      yearlyOperatingIncomes.push(yearlyStock.operatingIncome);
+    });
+    this.niraModalService.open(ChartModalComponent, {
+      outsideClose: false,
+      data: {
+        title: 'نمودار فروش سالیانه',
+        chartData: {
+          series: [
+            {
+              name: 'فروش',
+              data: yearlyOperatingIncomes,
+            },
+          ],
+          chart: {
+            type: 'line',
+            height: 400,
+          },
+          title: {
+            text: '',
+          },
+          xaxis: {
+            categories: yearlyStocks,
+          },
+        },
+      },
+    });
+  }
+  showMonthlySalesChartChart() {
+    let monthlySpringStocks: string[] = [];
+    let monthlySummerStocks: string[] = [];
+    let monthlyAutumnStocks: string[] = [];
+    let monthlyWinterStocks: string[] = [];
+    let monthlySpringColor: string[] = [];
+    let monthlySummerColor: string[] = [];
+    let monthlyAutumnColor: string[] = [];
+    let monthlyWinterColor: string[] = [];
+    let monthlySpringSeasonalSales: number[] = [];
+    let monthlySummerSeasonalSales: number[] = [];
+    let monthlyAutumnSeasonalSales: number[] = [];
+    let monthlyWinterSeasonalSales: number[] = [];
+    this.stockData.monthlyStockData.forEach(
+      (monthlyStock: MonthlyStockDataDM) => {
+        monthlySpringStocks.push(
+          monthlyStock.year + ' ' + monthlyStock.springName
+        );
+        monthlySummerStocks.push(
+          monthlyStock.year + ' ' + monthlyStock.summerName
+        );
+        monthlyAutumnStocks.push(
+          monthlyStock.year + ' ' + monthlyStock.autumnName
+        );
+        monthlyWinterStocks.push(
+          monthlyStock.year + ' ' + monthlyStock.winterName
+        );
+        monthlySpringColor.push('#2ECC71');
+        monthlySummerColor.push('#F1C40F');
+        monthlyAutumnColor.push('#8B4513');
+        monthlyWinterColor.push('#5DADE2');
+        monthlySpringSeasonalSales.push(monthlyStock.springSeasonalSales);
+        monthlySummerSeasonalSales.push(monthlyStock.summerSeasonalSales);
+        monthlyAutumnSeasonalSales.push(monthlyStock.autumnSeasonalSales);
+        monthlyWinterSeasonalSales.push(monthlyStock.winterSeasonalSales);
+      }
+    );
 
+    this.niraModalService.open(ChartModalComponent, {
+      outsideClose: false,
+      data: {
+        title: 'نمودار فروش فصلی',
+        chartData: {
+          series: [
+            {
+              name: 'فروش',
+              data: [
+                ...monthlySpringSeasonalSales,
+                ...monthlySummerSeasonalSales,
+                ...monthlyAutumnSeasonalSales,
+                ...monthlyWinterSeasonalSales,
+              ],
+            },
+          ],
+          chart: {
+            type: 'bar',
+            height: 400,
+          },
+          plotOptions: {
+            bar: {
+              distributed: true,
+            },
+          },
+          colors: [
+            ...monthlySpringColor,
+            ...monthlySummerColor,
+            ...monthlyAutumnColor,
+            ...monthlyWinterColor,
+          ],
+          dataLabels: {
+            enabled: false,
+          },
+          xaxis: {
+            categories: [
+              ...monthlySpringStocks,
+              ...monthlySummerStocks,
+              ...monthlyAutumnStocks,
+              ...monthlyWinterStocks,
+            ],
+          },
+        },
+      },
+    });
+  }
+  showNetProfitAndLossChart() {
+    let yearlyStocks: string[] = [];
+    let yearlyOperatingIncomes: number[] = [];
+    this.stockData.yearlyStockData.forEach((yearlyStock: YearlyStockDataDM) => {
+      yearlyStocks.push(yearlyStock.year);
+      yearlyOperatingIncomes.push(yearlyStock.netProfitAndLoss);
+    });
+    this.niraModalService.open(ChartModalComponent, {
+      outsideClose: false,
+      data: {
+        title: 'نمودار حاشیه سود',
+        chartData: {
+          series: [
+            {
+              name: 'فروش',
+              data: yearlyOperatingIncomes,
+            },
+          ],
+          chart: {
+            type: 'line',
+            height: 400,
+          },
+          title: {
+            text: '',
+          },
+          xaxis: {
+            categories: yearlyStocks,
+          },
+        },
+      },
+    });
+  }
+  showNetProfitMarginChart() {
+    let yearlyStocks: string[] = [];
+    let yearlyOperatingIncomes: number[] = [];
+    this.stockData.yearlyStockData.forEach((yearlyStock: YearlyStockDataDM) => {
+      yearlyStocks.push(yearlyStock.year);
+      yearlyOperatingIncomes.push(yearlyStock.netProfitMargin * 100);
+    });
+    this.niraModalService.open(ChartModalComponent, {
+      outsideClose: false,
+      data: {
+        title: 'نمودار حاشیه سود خالص',
+        chartData: {
+          series: [
+            {
+              name: 'فروش',
+              data: yearlyOperatingIncomes,
+            },
+          ],
+          chart: {
+            type: 'line',
+            height: 400,
+          },
+          title: {
+            text: '',
+          },
+          xaxis: {
+            categories: yearlyStocks,
+          },
+        },
+      },
+    });
+  }
   customizeData(stockData: StockDM) {
     stockData.monthlyStockData?.forEach((monthly: MonthlyStockDataDM) => {
       if (monthly.lastReportMonth <= 3 && stockData.forecastMonthlyStockData) {
@@ -551,6 +737,10 @@ export class StockPageComponent {
           monthly.netProfitMarginFourthSeason * 100;
       }
 
+      monthly.isForward[0] = monthly.lastReportMonth <= 3;
+      monthly.isForward[1] = monthly.lastReportMonth <= 6;
+      monthly.isForward[2] = monthly.lastReportMonth <= 9;
+      monthly.isForward[3] = monthly.lastReportMonth <= 12;
       if (
         this.currentYear === monthly.year &&
         stockData.forecastMonthlyStockData

@@ -28,6 +28,8 @@ import { DbConfig } from './store/dbConfig';
 import { StockPageComponent } from './components/stock-page/stock-page.component';
 import { TooltipDirective } from './directive/tooltip.directive';
 import { PersianDigitsPipe } from './utils/pipes/persian-digits.pipe';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { ChartModalComponent } from './components/modal/chart-modal/chart-modal.component';
 export let AppInjector: Injector;
 
 @NgModule({
@@ -50,6 +52,7 @@ export let AppInjector: Injector;
     FormControlPipe,
     TooltipDirective,
     PersianDigitsPipe,
+    ChartModalComponent,
     declarationIcons,
     declarationCores,
   ],
@@ -62,6 +65,7 @@ export let AppInjector: Injector;
     NiraDatePickerModule,
     FalconLibModule,
     ReactiveFormsModule,
+    NgApexchartsModule,
     NgxIndexedDBModule.forRoot(DbConfig),
   ],
   exports: [FormControlPipe, PersianDigitsPipe],

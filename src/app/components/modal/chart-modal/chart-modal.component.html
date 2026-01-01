@@ -1,0 +1,21 @@
+<core-card class="overflow-hidden" dir="rtl">
+  <div class="flex justify-between bg-background-color rounded-t-2xl">
+    <b class="m-3 self-center">{{ title }}</b>
+    <close-icon
+      (click)="close()"
+      class="h-10 m-3 rounded-full cursor-pointer fill-secondary-text-color p-2 hover:fill-primary-text-color hover:shadow-md hover:bg-background-hover-color"
+    ></close-icon>
+  </div>
+  <div class="block overflow-x-auto h-[60vh] w-[70vw] pt-3 custom-scroll">
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [colors]="chartOptions.colors"
+      [plotOptions]="chartOptions.plotOptions"
+      [xaxis]="chartOptions.xaxis"
+      [dataLabels]="chartOptions.dataLabels"
+    >
+      >
+    </apx-chart>
+  </div></core-card
+>
